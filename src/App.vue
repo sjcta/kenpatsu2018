@@ -28,8 +28,6 @@
     padding: 5px;
   }
 
-  .vux-pop-out-enter-active,
-  .vux-pop-out-leave-active,
   .vux-pop-in-enter-active,
   .vux-pop-in-leave-active {
       will-change: transform;
@@ -54,7 +52,7 @@
     transform: translate3d(100%, 0, 0);
   }
   .vux-pop-in-leave-active {
-    opacity: 0; 
+    opacity: 0;
     transform: translate3d(0, 0, 0);
   }
 

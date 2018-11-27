@@ -14,7 +14,6 @@
           </v-btn>
         </v-btn-toggle>
 
-
         <v-list two-line subheader v-for="part in panelParts">
 
           <h3 class="text-xs-center">{{ part.title }}</h3>
@@ -34,9 +33,7 @@
               </v-list-tile-content>
 
               <v-list-tile-action>
-                <v-btn icon ripple>
-                  <v-icon color="grey lighten-1">chevron_right</v-icon>
-                </v-btn>
+                  <v-icon color="grey lighten-1" right>chevron_right</v-icon>
               </v-list-tile-action>
             </v-list-tile>
           </div>
@@ -124,11 +121,10 @@ export default {
   computed: {
     panelParts () {
       return this.$store.state.panelParts
-    },
-
+    }
   },
   methods: {
-    getPanelInfo(pid) {
+    getPanelInfo (pid) {
       return this.$store.getters.getPanelById(pid)
     }
     // panelInfo (pid) {
