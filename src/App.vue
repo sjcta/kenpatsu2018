@@ -42,8 +42,8 @@
       overflow: hidden;
   }
   .vux-pop-out-enter {
-      opacity: 0;
-      transform: translate3d(0%, 0, 0);
+    opacity: 0;
+    transform: translate3d(0%, 0, 0);
   }
   .vux-pop-out-leave-active {
     opacity: 0;
