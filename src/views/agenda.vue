@@ -15,16 +15,15 @@
   </div>
 </template>
 
-
 <script>
-  import headerBar from '../components/headerBar.vue'
+import headerBar from '../components/headerBar.vue'
 
-  export default {
-    name: 'agendaPage',
-    components: {
-      headerBar
-    },
-    methods: {
-    }
+export default {
+  name: 'agendaPage',
+  components: {
+    headerBar
+  },
+  methods: {
   }
+}
 </script>

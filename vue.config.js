@@ -1,6 +1,11 @@
 // vue.config.js
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production'
-    ? '/event/kenpatsu2018/'
-    : '/'
+  devServer: {
+    overlay: {
+      warnings: false,
+      errors: true
+    }
+  },
+  baseUrl: process.env.NODE_ENV === 'production' ? '/' : '/',
+  lintOnSave: process.env.NODE_ENV !== 'production'
 }

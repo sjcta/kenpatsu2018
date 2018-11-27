@@ -24,15 +24,11 @@
               <v-btn block large color="info large" to="/panel"><span class="text-capitalize">{{ $vuetify.t('$vuetify.index.panelList') }}</span></v-btn>
               <v-btn block large color="info large" to="/lunchdinner"><span class="text-capitalize">{{ $vuetify.t('$vuetify.index.lunchDinner') }}</span></v-btn>
               <v-btn block large outline color="info"><span class="text-capitalize">{{ $vuetify.t('$vuetify.index.quest') }}</span></v-btn>
-
             </div>
-
 
             <div id="contact">
               <h1 class="text-xs-center headline font-weight-bold text-uppercase">{{ $vuetify.t('$vuetify.index.contact') }}</h1>
               <p class="text-xs-center body-1">{{ $vuetify.t('$vuetify.index.office') }}</p>
-
-
               <v-layout row>
                 <v-flex xs6 order-lg2>
                     <h3>{{ $vuetify.t('$vuetify.index.person1.name') }}</h3>
@@ -100,19 +96,15 @@
 
 <script>
 
-  export default {
-
-    name: 'indexPage',
-
-    methods: {
-      mailto (val) {
-        //console.log(mail);
-        document.location.href = "mailto:" + val;
-      },
-      telto (val) {
-        document.location.href = "tel:+" + val.replace(/[^0-9]/gi, '').substring(0,12);
-        //document.location.href = "tel:" + mail;
-      }
+export default {
+  name: 'indexPage',
+  methods: {
+    mailto (val) {
+      document.location.href = 'mailto:' + val
+    },
+    telto (val) {
+      document.location.href = 'tel:+' + val.replace(/[^0-9]/gi, '').substring(0, 12)
     }
   }
+}
 </script>
