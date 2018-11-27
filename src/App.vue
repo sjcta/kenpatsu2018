@@ -33,28 +33,29 @@
   .vux-pop-in-enter-active,
   .vux-pop-in-leave-active {
       will-change: transform;
-      transition: all 500ms;
+      transition: all 200ms;
       height: 100%;
       width: 100%;
       position: absolute;
       backface-visibility: hidden;
-      perspective: 1000;
+      perspective: 0;
       overflow: hidden;
   }
   .vux-pop-out-enter {
       opacity: 0;
-      transform: translate3d(-100%, 0, 0);
+      transform: translate3d(0%, 0, 0);
   }
   .vux-pop-out-leave-active {
     opacity: 0;
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   .vux-pop-in-enter {
     opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
   .vux-pop-in-leave-active {
-    opacity: 0; transform: translate3d(-100%, 0, 0);
+    opacity: 0; 
+    transform: translate3d(0, 0, 0);
   }
 
   .router-view{
