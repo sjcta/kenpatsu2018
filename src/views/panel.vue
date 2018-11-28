@@ -14,29 +14,35 @@
           </v-btn>
         </v-btn-toggle>
 
-        <v-list two-line subheader v-for="part in panelParts">
+
+        <v-list two-line subheader v-for="part in panelParts" class="elevation-3">
 
           <h3 class="text-xs-center">{{ part.title }}</h3>
 
           <div class="segment" v-for="segm in part.segment">
 
-            <v-subheader class="subtitle">{{ segm.title }}</v-subheader>
+            <h4 class="blue--text">{{ segm.title }}</h4>
 
-            <v-list-tile v-for="item in segm.panels" :key="item" avatar @click="">
-              <v-list-tile-action>
-                {{ getPanelInfo(item).id }}
-              </v-list-tile-action>
+            <v-list-tile @click="" v-for="item in segm.panels">
+                <v-list-tile-action>
+                  <span class="key">{{ getPanelInfo(item).id }}</span>
+                </v-list-tile-action>
 
-              <v-list-tile-content>
-                <p>{{ getPanelInfo(item).title }}</p>
-                <i>[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</i>
-              </v-list-tile-content>
+                <v-list-tile-content>
+                  <v-layout align-start justify-start column fill-height>
+                      <div class="theme">{{ getPanelInfo(item).title }}</div>
+                      <div><span class="charge grey--text">[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span></div>
+                  </v-layout>
+                </v-list-tile-content>
 
-              <v-list-tile-action>
-                  <v-icon color="grey lighten-1" right>chevron_right</v-icon>
-              </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-icon color="grey lighten-1">chevron_right</v-icon>
+                </v-list-tile-action>
+
             </v-list-tile>
+
           </div>
+
         </v-list>
 
       </v-container>
@@ -65,42 +71,43 @@
   font-size: 90%;
 }
 #panelList h3 {
-  height: 30px;
-  line-height: 30px;
-  background-color: #2196f3;
-  color: #FFF;
-  margin: 20px 0;
-}
-#panelList .subtitle {
-  line-height: 25px;
-  border-bottom: 1px solid #ccc;
-  margin: 20px 0 10px;
   height: 40px;
+  line-height: 40px;
+  background-color: #2196f3;
+  font-size: 15px;
+  color: #FFF;
+  margin: 20px 0 0;
 }
+#panelList h4 {
+  padding: 15px 0 10px;
+  margin-left: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
 #panelList .v-list__tile {
-  min-height: 50px;
-  padding: 10px 0;
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  min-height: auto;
 }
 #panelList .v-list__tile__action {
-  display: inline-block;
   min-width: 40px;
+  padding: 6px 0 0;
+  align-items: flex-start;
+}
+#panelList .key {
+  font-size: 11px;
+}
+#panelList .theme {
+  display: block;
   font-size: 12px;
+  line-height: 1.2;
+  padding: 8px 0 0;
 }
-#panelList .v-list__tile__title {
+#panelList .charge {
+  padding: 0;
   font-size: 12px;
-  height: auto;
-}
-#panelList .v-list__tile__content {
-  justify-content: start;
-}
-#panelList .v-list__tile__content p {
-  font-size: 83%;
-  font-weight: normal;
-  margin-bottom: 2px;
-}
-#panelList .v-list__tile__content i {
-  font-size: 73%;
-  color: #999;
 }
 
 </style>
@@ -121,10 +128,11 @@ export default {
   computed: {
     panelParts () {
       return this.$store.state.panelParts
-    }
+    },
+
   },
   methods: {
-    getPanelInfo (pid) {
+    getPanelInfo(pid) {
       return this.$store.getters.getPanelById(pid)
     }
     // panelInfo (pid) {

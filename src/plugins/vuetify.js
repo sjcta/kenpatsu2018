@@ -9,7 +9,7 @@ Vue.use(Vuetify, {
   lang: {
     locales: {
       'en': en,
-      'jp': jp
+      'jp' : jp
     },
     current: 'en'
   }

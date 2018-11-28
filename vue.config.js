@@ -7,5 +7,5 @@ module.exports = {
     }
   },
   baseUrl: process.env.NODE_ENV === 'production' ? '/' : '/',
-  lintOnSave: false
+  lintOnSave: process.env.NODE_ENV !== 'production'
 }
