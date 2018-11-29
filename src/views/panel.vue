@@ -188,7 +188,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 40px;
+  height: 35px;
   margin-bottom: 1px;
   margin-right: 1px;
   opacity: .7;
@@ -228,11 +228,11 @@
 #map .flexBox.last span {
   background-color: #FFF;
   margin: 0;
-  height: 42px;
   opacity: 1;
 }
 #map .flexBox.last span.block {
   background-color: #eee;
+  border: 1px solid #eee;
   margin: 0;
 }
 
@@ -240,7 +240,7 @@
 @-webkit-keyframes twinkling{
     0%{
         opacity: 0.4;
-        font-size: 20px;
+        font-size: 120%;
         background-color: #F00;
     }
     100%{
@@ -250,7 +250,7 @@
 @keyframes twinkling{
     0%{
         opacity: 0.4;
-        font-size: 20px;
+        font-size: 120%;
         background-color: #F00;
     }
     100%{
