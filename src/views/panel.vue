@@ -239,9 +239,12 @@
 
 @-webkit-keyframes twinkling{
     0%{
+        opacity: 1;
+    }
+    50%{
         opacity: 0.4;
         font-size: 120%;
-        background-color: #F00;
+        background-color: red;
     }
     100%{
         opacity: 1;
@@ -249,9 +252,13 @@
 }
 @keyframes twinkling{
     0%{
+        opacity: 1;
+    }
+    50%{
         opacity: 0.4;
         font-size: 120%;
-        background-color: #F00;
+        color: red;
+        background-color: white;
     }
     100%{
         opacity: 1;
@@ -304,7 +311,7 @@ export default {
       this.timer = setInterval(() => {
         this.activedBlock = "";
         clearInterval(this.timer);
-      }, 5900)
+      }, 6000)
     }
   }
 }
