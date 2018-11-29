@@ -1,6 +1,6 @@
 <template>
   <div>
-        <v-toolbar app dark scroll-off-screen>
+        <v-toolbar app dark scroll-off-screen flat>
           <v-toolbar-title class="title text-uppercase">
             <span>{{ $vuetify.t('$vuetify.header.title') }}</span>
           </v-toolbar-title>

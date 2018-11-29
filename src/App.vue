@@ -16,7 +16,10 @@
   body {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
-    background: url("../assets/images/bg_grey.png");
+  }
+  #app {
+    background: url("./assets/bg_grey.png") fixed;
+    background-size: 20%;
   }
   .v-toolbar {
     background-color: #00355b;
@@ -27,6 +30,10 @@
   .v-toolbar button {
     min-width: 60px;
     padding: 5px;
+  }
+  .v-footer {
+    background-color: none;
+    border-top: 1px solid #ccc;
   }
 
   .vux-pop-in-enter-active,

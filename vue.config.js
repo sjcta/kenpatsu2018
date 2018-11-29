@@ -6,6 +6,13 @@ module.exports = {
       errors: true
     }
   },
-  baseUrl: process.env.NODE_ENV === 'production' ? '/' : '/',
-  lintOnSave: process.env.NODE_ENV !== 'production'
+
+  baseUrl: undefined,
+  lintOnSave: false,
+  outputDir: undefined,
+  assetsDir: 'assets',
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined,
+  css: undefined
 }

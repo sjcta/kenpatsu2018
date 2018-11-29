@@ -3,9 +3,10 @@
     <headerBar v-on:childLang = "$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
     <v-content id="panelList">
+
       <v-container fluid>
 
-        <v-btn-toggle light v-model="toggleTab" mandatory>
+        <v-btn-toggle  v-model="toggleTab" mandatory>
           <v-btn flat value="list">
             <v-icon>list</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.list') }}</span>
           </v-btn>
@@ -15,7 +16,7 @@
         </v-btn-toggle>
 
 
-        <v-list two-line subheader v-for="part in panelParts" class="elevation-3">
+        <v-list two-line subheader v-for="part in panelParts" class="elevation-3" v-if="toggleTab == 'list'">
 
           <h3 class="text-xs-center">{{ part.title }}</h3>
 
@@ -44,6 +45,60 @@
           </div>
 
         </v-list>
+
+        <div id="map" class="elevation-3" v-if="toggleTab == 'map'">
+          <v-layout>
+            <v-flex xs12 class="bg">
+              <div class="flexBox first">
+                <div class="groupA">
+                  <span v-for="i in mapGroup.groupA" class="areaB" :id="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
+                </div>
+                <div class="groupB">
+                  <span v-for="i in mapGroup.groupB" class="areaA" :id="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span>
+                </div>
+              </div>
+              <div class="flexBox bottom">
+                <div class="bottom"><span class="areaA" id="A-05">A-05</span></div>
+              </div>
+
+              <div class="flexBox bottom">
+                  <div><span class="areaA" id="A-04">A-04</span></div>
+              </div>
+              <div class="flexBox bottom">
+                  <div><span class="areaA" id="A-03">A-03</span></div>
+              </div>
+              <div class="flexBox bottom">
+                  <div><span class="areaA" id="A-02">A-02</span></div>
+              </div>
+              <div class="flexBox">
+                <div class="groupC">
+                  <span v-for="i in mapGroup.groupC" class="areaB" :id="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
+                </div>
+                <div class="groupD">
+                  <span v-for="i in mapGroup.groupD" class="areaC" :id="'C-'+ fixNum(i)">C-{{ fixNum(i) }}</span>
+                </div>
+                <div>
+                  <span class="none">&nbsp;</span>
+                  <span class="areaA" id="A-01">A-01</span>
+                </div>
+              </div>
+              <div class="flexBox last">
+                <div class="groupNone">
+                  <span>&nbsp;</span>
+                  <span class="block">&nbsp;</span>
+                  <span class="block">&nbsp;</span>
+                  <span class="block">&nbsp;</span>
+                  <span>&nbsp;</span>
+                  <span>&nbsp;</span>
+                  <span>&nbsp;</span>
+                  <span>&nbsp;</span>
+                  <span>&nbsp;</span>
+                  <span>&nbsp;</span>
+                </div>
+              </div>
+            </v-flex>
+          </v-layout>
+        </div>
 
       </v-container>
     </v-content>
@@ -110,6 +165,84 @@
   font-size: 12px;
 }
 
+#map {
+  margin: 20px 0 0;
+  padding: 10px;
+  background-color: #FFF;
+}
+#map .layout {
+/*  background: url('../assets/map.png') no-repeat left center;
+  background-size: 100%;*/
+}
+#map .layout .bg {
+  display: flex;
+  align-items: stretch;
+  padding-left:10px;
+  background-color: #eee;
+}
+#map .flexBox {
+  display: flex;
+  width: 14%;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  padding: 10px 0;
+}
+#map .flexBox div {
+  width: 100%;
+}
+#map .flexBox.first,
+#map .flexBox.last {
+}
+#map .flexBox.bottom {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+#map .flexBox span {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 40px;
+  margin-bottom: 1px;
+  margin-right: 1px;
+}
+
+#map .flexBox .groupA,
+#map .flexBox .groupB,
+#map .flexBox .groupC {
+  display: flex;
+  flex-direction: column;
+}
+#map span.areaA {
+  color: #FFF;
+  background-color: #886e69;
+}
+#map span.areaB {
+  background-color: #fea477;
+}
+#map span.areaC {
+  color: #FFF;
+  background-color: #d45246;
+}
+#map div.bottom {
+  align-self: flex-end;
+}
+
+#map .flexBox.last {
+  width: 16%;
+  padding: 0 0 0 10px;
+}
+
+#map .flexBox.last span {
+  background-color: #FFF;
+  margin: 0;
+  height: 42px;
+}
+#map .flexBox.last span.block {
+  background-color: #eee;
+  margin: 0;
+}
 </style>
 
 <script>
@@ -122,25 +255,27 @@ export default {
   },
   data () {
     return {
-      toggleTab: 'list'
+      toggleTab: 'list',
+      mapGroup:{
+        groupA: [6,5,4,3,2,1],
+        groupB: [11,10,9,8,7,6],
+        groupC: [7,8,9,10,11,12,13],
+        groupD: [1,2,3]
+      }
     }
   },
   computed: {
     panelParts () {
       return this.$store.state.panelParts
-    },
-
+    }
   },
   methods: {
     getPanelInfo(pid) {
       return this.$store.getters.getPanelById(pid)
+    },
+    fixNum(num) {
+      return (''+num).length < 2 ? ((new Array(2 + 1)).join('0') + num).slice(-2) : '' + num;
     }
-    // panelInfo (pid) {
-    //   //console.log(id);
-    //   let panelsInfo = this.$store.state.panelInfo;
-    //   let pn = panelsInfo.find(o => o.id === pid);
-    //   return pn.title;
-    // }
   }
 }
 </script>
