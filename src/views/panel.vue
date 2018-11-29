@@ -24,7 +24,7 @@
 
             <h4 class="blue--text">{{ segm.title }}</h4>
 
-            <v-list-tile @click="" v-for="item in segm.panels">
+            <v-list-tile v-for="item in segm.panels" @click="showMap(getPanelInfo(item).id)">
                 <v-list-tile-action>
                   <span class="key">{{ getPanelInfo(item).id }}</span>
                 </v-list-tile-action>
@@ -32,7 +32,9 @@
                 <v-list-tile-content>
                   <v-layout align-start justify-start column fill-height>
                       <div class="theme">{{ getPanelInfo(item).title }}</div>
-                      <div><span class="charge grey--text">[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span></div>
+                      <div>
+                        <span class="charge grey--text">[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span>
+                      </div>
                   </v-layout>
                 </v-list-tile-content>
 
@@ -51,49 +53,32 @@
             <v-flex xs12 class="bg">
               <div class="flexBox first">
                 <div class="groupA">
-                  <span v-for="i in mapGroup.groupA" class="areaB" :id="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
+                  <span v-for="i in mapGroup.groupA" class="areaB" :refs="'B-'+ fixNum(i)" :class="activeObject" @click="showID()">B-{{ fixNum(i) }}</span>
                 </div>
                 <div class="groupB">
-                  <span v-for="i in mapGroup.groupB" class="areaA" :id="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span>
+                  <span v-for="i in mapGroup.groupB" class="areaA" :refs="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span>
                 </div>
               </div>
-              <div class="flexBox bottom">
-                <div class="bottom"><span class="areaA" id="A-05">A-05</span></div>
-              </div>
-
-              <div class="flexBox bottom">
-                  <div><span class="areaA" id="A-04">A-04</span></div>
-              </div>
-              <div class="flexBox bottom">
-                  <div><span class="areaA" id="A-03">A-03</span></div>
-              </div>
-              <div class="flexBox bottom">
-                  <div><span class="areaA" id="A-02">A-02</span></div>
+              <div class="flexBox bottom" v-for="i in mapGroup.groupC">
+                  <div><span class="areaA" :refs="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span></div>
               </div>
               <div class="flexBox">
                 <div class="groupC">
-                  <span v-for="i in mapGroup.groupC" class="areaB" :id="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
+                  <span v-for="i in mapGroup.groupD" class="areaB" :refs="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
                 </div>
                 <div class="groupD">
-                  <span v-for="i in mapGroup.groupD" class="areaC" :id="'C-'+ fixNum(i)">C-{{ fixNum(i) }}</span>
+                  <span v-for="i in mapGroup.groupE" class="areaC" :refs="'C-'+ fixNum(i)">C-{{ fixNum(i) }}</span>
                 </div>
                 <div>
                   <span class="none">&nbsp;</span>
-                  <span class="areaA" id="A-01">A-01</span>
+                  <span class="areaA" refs="A-01">A-01</span>
                 </div>
               </div>
               <div class="flexBox last">
                 <div class="groupNone">
                   <span>&nbsp;</span>
-                  <span class="block">&nbsp;</span>
-                  <span class="block">&nbsp;</span>
-                  <span class="block">&nbsp;</span>
-                  <span>&nbsp;</span>
-                  <span>&nbsp;</span>
-                  <span>&nbsp;</span>
-                  <span>&nbsp;</span>
-                  <span>&nbsp;</span>
-                  <span>&nbsp;</span>
+                  <span class="block" v-for="i in 3">&nbsp;</span>
+                  <span v-for="i in 6">&nbsp;</span>
                 </div>
               </div>
             </v-flex>
@@ -167,7 +152,7 @@
 
 #map {
   margin: 20px 0 0;
-  padding: 10px;
+  padding: 20px;
   background-color: #FFF;
 }
 #map .layout {
@@ -206,6 +191,7 @@
   height: 40px;
   margin-bottom: 1px;
   margin-right: 1px;
+  opacity: .7;
 }
 
 #map .flexBox .groupA,
@@ -238,6 +224,7 @@
   background-color: #FFF;
   margin: 0;
   height: 42px;
+  opacity: 1;
 }
 #map .flexBox.last span.block {
   background-color: #eee;
@@ -259,14 +246,21 @@ export default {
       mapGroup:{
         groupA: [6,5,4,3,2,1],
         groupB: [11,10,9,8,7,6],
-        groupC: [7,8,9,10,11,12,13],
-        groupD: [1,2,3]
-      }
+        groupC: [5,4,3,2],
+        groupD: [7,8,9,10,11,12,13],
+        groupE: [1,2,3]
+      },
+      activeMap: ''
     }
   },
   computed: {
     panelParts () {
       return this.$store.state.panelParts
+    },
+    activeObject () {
+      return {
+        active: this.$refs == this.activeMap
+      }
     }
   },
   methods: {
@@ -275,6 +269,13 @@ export default {
     },
     fixNum(num) {
       return (''+num).length < 2 ? ((new Array(2 + 1)).join('0') + num).slice(-2) : '' + num;
+    },
+    showMap(id) {
+      this.activeMap = id;
+      this.toggleTab = 'map';
+    },
+    showID() {
+      this.$refs;
     }
   }
 }

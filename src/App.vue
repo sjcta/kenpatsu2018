@@ -6,7 +6,7 @@
         </keep-alive>
       </transition>
 
-      <v-footer class="pa-3">
+      <v-footer class="pa-3" light>
         <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D</v-flex>
       </v-footer>
   </v-app>
@@ -17,7 +17,10 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  #app {
+  footer {
+    border-top: 1px solid #eee;
+  }
+  .v-content {
     background: url("./assets/bg_grey.png") fixed;
     background-size: 20%;
   }
@@ -30,10 +33,6 @@
   .v-toolbar button {
     min-width: 60px;
     padding: 5px;
-  }
-  .v-footer {
-    background-color: none;
-    border-top: 1px solid #ccc;
   }
 
   .vux-pop-in-enter-active,
