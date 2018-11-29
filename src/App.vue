@@ -5,10 +5,6 @@
           <router-view v-on:changeLang="changeLang"></router-view>
         </keep-alive>
       </transition>
-
-      <v-footer class="pa-3" light>
-        <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.3</v-flex>
-      </v-footer>
   </v-app>
 </template>
 
@@ -17,15 +13,12 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  footer {
-    border-top: 1px solid #eee;
-  }
-  .v-content {
+  #app {
     background: url("./assets/bg_grey.png") fixed;
     background-size: 20%;
   }
-  .v-toolbar {
-    background-color: #00355b;
+  footer {
+    border-top: 1px solid #eee;
   }
   .v-toolbar > .title {
     font-size: 18px;

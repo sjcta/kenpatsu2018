@@ -6,19 +6,19 @@
 
       <v-container fluid>
 
-        <v-btn-toggle  v-model="toggleTab" mandatory>
+        <!-- <v-btn-toggle  v-model="toggleTab" mandatory>
           <v-btn flat value="list">
             <v-icon>list</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.list') }}</span>
           </v-btn>
           <v-btn flat value="map">
             <v-icon>map</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.map') }}</span>
           </v-btn>
-        </v-btn-toggle>
+        </v-btn-toggle> -->
 
 
-        <v-list two-line subheader v-for="(part,index) in panelParts" class="elevation-3" v-if="toggleTab == 'list'">
+        <v-list two-line subheader v-for="(part,index) in panelParts" class="elevation-3" v-if="activeBtn == 'list'">
 
-          <h3 :class="[{ 'areaA': index==0,'areaB': index==1, 'areaC': index==2}, 'text-xs-center']">{{ part.title }}</h3>
+          <h3 class="text-xs-center">{{ part.title }}</h3>
 
           <div class="segment" v-for="segm in part.segment">
 
@@ -48,7 +48,7 @@
 
         </v-list>
 
-        <div id="map" class="elevation-3" v-if="toggleTab == 'map'">
+        <div id="map" class="elevation-3" v-if="activeBtn == 'map'">
           <v-layout>
             <v-flex xs12 class="bg">
               <div class="flexBox first">
@@ -87,11 +87,24 @@
 
       </v-container>
     </v-content>
+
+    <v-bottom-nav :active.sync="activeBtn" :value="true" color="blue" fixed> 
+
+      <v-btn dark flat value="list">
+        <span>LIST</span>
+        <v-icon>list</v-icon>
+      </v-btn>
+
+      <v-btn dark flat value="map">
+        <span>MAP</span>
+        <v-icon>map</v-icon>
+      </v-btn>
+    </v-bottom-nav>
   </div>
 </template>
 
 <style scoped>
-.v-btn-toggle {
+/* .v-btn-toggle {
   width: 100%;
 }
 .v-btn-toggle .v-btn {
@@ -106,9 +119,10 @@
 }
 .v-btn.v-btn--active * {
   color: #FFF;
-}
+} */
 #panelList {
   font-size: 90%;
+  margin-bottom: 50px;
 }
 #panelList h3 {
   height: 40px;
@@ -116,7 +130,7 @@
   background-color: #2196f3;
   font-size: 15px;
   color: #FFF;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
 }
 #panelList h4 {
   padding: 15px 0 10px;
@@ -277,7 +291,7 @@ export default {
   },
   data () {
     return {
-      toggleTab: 'list',
+      activeBtn: 'list',
       activedBlock: '',
       blocks:{
         groupA: ['B-06','B-05','B-04','B-03','B-02','B-01'],
@@ -292,6 +306,9 @@ export default {
   computed: {
     panelParts () {
       return this.$store.state.panelParts
+    },
+    activeBtn () {
+      console.log(this.activeBtn)
     }
   },
   methods: {
@@ -304,7 +321,7 @@ export default {
     showMap(id) {
       clearInterval(this.timer);
       this.activedBlock = id;
-      this.toggleTab = 'map';
+      this.activeBtn = 'map';
       this.clearBlock();
     },
     clearBlock() {
