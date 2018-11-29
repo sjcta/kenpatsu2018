@@ -16,9 +16,9 @@
         </v-btn-toggle>
 
 
-        <v-list two-line subheader v-for="part in panelParts" class="elevation-3" v-if="toggleTab == 'list'">
+        <v-list two-line subheader v-for="(part,index) in panelParts" class="elevation-3" v-if="toggleTab == 'list'">
 
-          <h3 class="text-xs-center">{{ part.title }}</h3>
+          <h3 :class="[{ 'areaA': index==0,'areaB': index==1, 'areaC': index==2}, 'text-xs-center']">{{ part.title }}</h3>
 
           <div class="segment" v-for="segm in part.segment">
 
@@ -53,25 +53,25 @@
             <v-flex xs12 class="bg">
               <div class="flexBox first">
                 <div class="groupA">
-                  <span v-for="i in mapGroup.groupA" class="areaB" :refs="'B-'+ fixNum(i)" :class="activeObject" @click="showID()">B-{{ fixNum(i) }}</span>
+                  <span v-for="i in blocks.groupA" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div class="groupB">
-                  <span v-for="i in mapGroup.groupB" class="areaA" :refs="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span>
+                  <span v-for="i in blocks.groupB" class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
               </div>
-              <div class="flexBox bottom" v-for="i in mapGroup.groupC">
-                  <div><span class="areaA" :refs="'A-'+ fixNum(i)">A-{{ fixNum(i) }}</span></div>
+              <div class="flexBox bottom" v-for="i in blocks.groupC">
+                  <div><span class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span></div>
               </div>
               <div class="flexBox">
                 <div class="groupC">
-                  <span v-for="i in mapGroup.groupD" class="areaB" :refs="'B-'+ fixNum(i)">B-{{ fixNum(i) }}</span>
+                  <span v-for="i in blocks.groupD" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div class="groupD">
-                  <span v-for="i in mapGroup.groupE" class="areaC" :refs="'C-'+ fixNum(i)">C-{{ fixNum(i) }}</span>
+                  <span v-for="i in blocks.groupE" class="areaC" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div>
                   <span class="none">&nbsp;</span>
-                  <span class="areaA" refs="A-01">A-01</span>
+                  <span class="areaA" refs="A-01" :class="{'active': `A-01`==activedBlock ? true:false}">A-01</span>
                 </div>
               </div>
               <div class="flexBox last">
@@ -200,19 +200,24 @@
   display: flex;
   flex-direction: column;
 }
-#map span.areaA {
+.areaA {
   color: #FFF;
   background-color: #886e69;
 }
-#map span.areaB {
+.areaB {
   background-color: #fea477;
 }
-#map span.areaC {
+.areaC {
   color: #FFF;
   background-color: #d45246;
 }
 #map div.bottom {
   align-self: flex-end;
+}
+#map span.active {
+  opacity: 1;
+  -webkit-animation: twinkling 1s infinite ease-in-out;
+
 }
 
 #map .flexBox.last {
@@ -230,6 +235,29 @@
   background-color: #eee;
   margin: 0;
 }
+
+
+@-webkit-keyframes twinkling{
+    0%{
+        opacity: 0.4;
+        font-size: 20px;
+        background-color: #F00;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes twinkling{
+    0%{
+        opacity: 0.4;
+        font-size: 20px;
+        background-color: #F00;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 </style>
 
 <script>
@@ -243,24 +271,20 @@ export default {
   data () {
     return {
       toggleTab: 'list',
-      mapGroup:{
-        groupA: [6,5,4,3,2,1],
-        groupB: [11,10,9,8,7,6],
-        groupC: [5,4,3,2],
-        groupD: [7,8,9,10,11,12,13],
-        groupE: [1,2,3]
+      activedBlock: '',
+      blocks:{
+        groupA: ['B-06','B-05','B-04','B-03','B-02','B-01'],
+        groupB: ['A-11','A-10','A-09','A-08','A-07','A-06'],
+        groupC: ['A-05','A-04','A-03','A-02'],
+        groupD: ['B-07','B-08','B-09','B-10','B-11','B-12','B-13'],
+        groupE: ['C-01','C-02','C-03']
       },
-      activeMap: ''
+      timer: ""
     }
   },
   computed: {
     panelParts () {
       return this.$store.state.panelParts
-    },
-    activeObject () {
-      return {
-        active: this.$refs == this.activeMap
-      }
     }
   },
   methods: {
@@ -271,11 +295,16 @@ export default {
       return (''+num).length < 2 ? ((new Array(2 + 1)).join('0') + num).slice(-2) : '' + num;
     },
     showMap(id) {
-      this.activeMap = id;
+      clearInterval(this.timer);
+      this.activedBlock = id;
       this.toggleTab = 'map';
+      this.clearBlock();
     },
-    showID() {
-      this.$refs;
+    clearBlock() {
+      this.timer = setInterval(() => {
+        this.activedBlock = "";
+        clearInterval(this.timer);
+      }, 5900)
     }
   }
 }
