@@ -16,15 +16,15 @@
         </v-btn-toggle> -->
 
 
-        <v-list two-line subheader v-for="(part,index) in panelParts" class="elevation-3" v-if="activeBtn == 'list'">
+        <v-list two-line subheader v-for="(part,index) in panelParts" :key="index" class="elevation-3" v-if="activeBtn == 'list'">
 
           <h3 class="text-xs-center">{{ part.title }}</h3>
 
-          <div class="segment" v-for="segm in part.segment">
+          <div class="segment" v-for="(segm,index) in part.segment" :key="index">
 
             <h4 class="blue--text">{{ segm.title }}</h4>
 
-            <v-list-tile v-for="item in segm.panels" @click="showMap(getPanelInfo(item).id)">
+            <v-list-tile v-for="(item,index) in segm.panels" @click="showMap(getPanelInfo(item).id)" :key="index">
                 <v-list-tile-action>
                   <span class="key">{{ getPanelInfo(item).id }}</span>
                 </v-list-tile-action>
@@ -53,21 +53,21 @@
             <v-flex xs12 class="bg">
               <div class="flexBox first">
                 <div class="groupA">
-                  <span v-for="i in blocks.groupA" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span v-for="(i,index) in blocks.groupA" :key="index" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div class="groupB">
-                  <span v-for="i in blocks.groupB" class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span v-for="(i,index) in blocks.groupB" :key="index" class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
               </div>
-              <div class="flexBox bottom" v-for="i in blocks.groupC">
+              <div class="flexBox bottom" v-for="(i,index) in blocks.groupC" :key="index">
                   <div><span class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span></div>
               </div>
               <div class="flexBox">
                 <div class="groupC">
-                  <span v-for="i in blocks.groupD" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span v-for="(i,index) in blocks.groupD" :key="index" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div class="groupD">
-                  <span v-for="i in blocks.groupE" class="areaC" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span v-for="(i,index) in blocks.groupE" :key="index" class="areaC" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
                 </div>
                 <div>
                   <span class="none">&nbsp;</span>
@@ -77,8 +77,8 @@
               <div class="flexBox last">
                 <div class="groupNone">
                   <span>&nbsp;</span>
-                  <span class="block" v-for="i in 3">&nbsp;</span>
-                  <span v-for="i in 6">&nbsp;</span>
+                  <span class="block" v-for="i in 3" :key="i">&nbsp;</span>
+                  <span v-for="i in 6" :key="i">&nbsp;</span>
                 </div>
               </div>
             </v-flex>
@@ -169,10 +169,6 @@
   padding: 20px;
   background-color: #FFF;
 }
-#map .layout {
-/*  background: url('../assets/map.png') no-repeat left center;
-  background-size: 100%;*/
-}
 #map .layout .bg {
   display: flex;
   align-items: stretch;
@@ -189,9 +185,6 @@
 }
 #map .flexBox div {
   width: 100%;
-}
-#map .flexBox.first,
-#map .flexBox.last {
 }
 #map .flexBox.bottom {
   align-items: flex-end;
@@ -231,7 +224,6 @@
 #map span.active {
   opacity: 1;
   -webkit-animation: twinkling 1s infinite ease-in-out;
-
 }
 
 #map .flexBox.last {
