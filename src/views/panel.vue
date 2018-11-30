@@ -201,7 +201,6 @@
 }
 
 #map {
-  margin: 20px 0 0;
   padding: 20px;
   background-color: #fff;
 }

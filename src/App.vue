@@ -14,8 +14,7 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
   #app {
-    background: url("./assets/bg_grey.png") fixed;
-    background-size: 20%;
+    background: #FFF url("./assets/bg_grey.png") fixed 20%;
   }
   footer {
     border-top: 1px solid #eee;
