@@ -1,11 +1,9 @@
 <template>
   <div>
-    <headerBar v-on:childLang = "$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
+    <headerBar v-on:childLang="$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
     <v-content id="panelList">
-
       <v-container fluid>
-
         <!-- <v-btn-toggle  v-model="toggleTab" mandatory>
           <v-btn flat value="list">
             <v-icon>list</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.list') }}</span>
@@ -13,39 +11,45 @@
           <v-btn flat value="map">
             <v-icon>map</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.map') }}</span>
           </v-btn>
-        </v-btn-toggle> -->
-
-
-        <v-list two-line subheader v-for="(part,index) in panelParts" :key="index" class="elevation-3" v-if="activeBtn == 'list'">
-
+        </v-btn-toggle>-->
+        <v-list
+          two-line
+          subheader
+          v-for="(part,index) in panelParts"
+          :key="index"
+          class="elevation-3"
+          v-if="activeBtn == 'list'"
+        >
           <h3 class="text-xs-center">{{ part.title }}</h3>
 
           <div class="segment" v-for="(segm,index) in part.segment" :key="index">
-
             <h4 class="blue--text">{{ segm.title }}</h4>
 
-            <v-list-tile v-for="(item,index) in segm.panels" @click="showMap(getPanelInfo(item).id)" :key="index">
-                <v-list-tile-action>
-                  <span class="key">{{ getPanelInfo(item).id }}</span>
-                </v-list-tile-action>
+            <v-list-tile
+              v-for="(item,index) in segm.panels"
+              @click="showMap(getPanelInfo(item).id)"
+              :key="index"
+            >
+              <v-list-tile-action>
+                <span class="key">{{ getPanelInfo(item).id }}</span>
+              </v-list-tile-action>
 
-                <v-list-tile-content>
-                  <v-layout align-start justify-start column fill-height>
-                      <div class="theme">{{ getPanelInfo(item).title }}</div>
-                      <div>
-                        <span class="charge grey--text">[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span>
-                      </div>
-                  </v-layout>
-                </v-list-tile-content>
+              <v-list-tile-content>
+                <v-layout align-start justify-start column fill-height>
+                  <div class="theme">{{ getPanelInfo(item).title }}</div>
+                  <div>
+                    <span
+                      class="charge grey--text"
+                    >[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span>
+                  </div>
+                </v-layout>
+              </v-list-tile-content>
 
-                <v-list-tile-action>
-                  <v-icon color="grey lighten-1">chevron_right</v-icon>
-                </v-list-tile-action>
-
+              <v-list-tile-action>
+                <v-icon color="grey lighten-1">chevron_right</v-icon>
+              </v-list-tile-action>
             </v-list-tile>
-
           </div>
-
         </v-list>
 
         <div id="map" class="elevation-3" v-if="activeBtn == 'map'">
@@ -53,25 +57,59 @@
             <v-flex xs12 class="bg">
               <div class="flexBox first">
                 <div class="groupA">
-                  <span v-for="(i,index) in blocks.groupA" :key="index" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span
+                    v-for="(i,index) in blocks.groupA"
+                    :key="index"
+                    class="areaB"
+                    :refs="i"
+                    :class="{active: i==activedBlock?true:false}"
+                  >{{ i }}</span>
                 </div>
                 <div class="groupB">
-                  <span v-for="(i,index) in blocks.groupB" :key="index" class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span
+                    v-for="(i,index) in blocks.groupB"
+                    :key="index"
+                    class="areaA"
+                    :refs="i"
+                    :class="{active: i==activedBlock?true:false}"
+                  >{{ i }}</span>
                 </div>
               </div>
               <div class="flexBox bottom" v-for="(i,index) in blocks.groupC" :key="index">
-                  <div><span class="areaA" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span></div>
+                <div>
+                  <span
+                    class="areaA"
+                    :refs="i"
+                    :class="{active: i==activedBlock?true:false}"
+                  >{{ i }}</span>
+                </div>
               </div>
               <div class="flexBox">
                 <div class="groupC">
-                  <span v-for="(i,index) in blocks.groupD" :key="index" class="areaB" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span
+                    v-for="(i,index) in blocks.groupD"
+                    :key="index"
+                    class="areaB"
+                    :refs="i"
+                    :class="{active: i==activedBlock?true:false}"
+                  >{{ i }}</span>
                 </div>
                 <div class="groupD">
-                  <span v-for="(i,index) in blocks.groupE" :key="index" class="areaC" :refs="i" :class="{active: i==activedBlock?true:false}">{{ i }}</span>
+                  <span
+                    v-for="(i,index) in blocks.groupE"
+                    :key="index"
+                    class="areaC"
+                    :refs="i"
+                    :class="{active: i==activedBlock?true:false}"
+                  >{{ i }}</span>
                 </div>
                 <div>
                   <span class="none">&nbsp;</span>
-                  <span class="areaA" refs="A-01" :class="{'active': `A-01`==activedBlock ? true:false}">A-01</span>
+                  <span
+                    class="areaA"
+                    refs="A-01"
+                    :class="{'active': `A-01`==activedBlock ? true:false}"
+                  >A-01</span>
                 </div>
               </div>
               <div class="flexBox last">
@@ -84,12 +122,10 @@
             </v-flex>
           </v-layout>
         </div>
-
       </v-container>
     </v-content>
 
-    <v-bottom-nav :active.sync="activeBtn" :value="true" color="blue" fixed> 
-
+    <v-bottom-nav :active.sync="activeBtn" :value="true" color="blue" fixed>
       <v-btn dark flat value="list">
         <span>LIST</span>
         <v-icon>list</v-icon>
@@ -129,7 +165,7 @@
   line-height: 40px;
   background-color: #2196f3;
   font-size: 15px;
-  color: #FFF;
+  color: #fff;
   margin: 10px 0 0;
 }
 #panelList h4 {
@@ -167,12 +203,12 @@
 #map {
   margin: 20px 0 0;
   padding: 20px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 #map .layout .bg {
   display: flex;
   align-items: stretch;
-  padding-left:10px;
+  padding-left: 10px;
   background-color: #eee;
 }
 #map .flexBox {
@@ -191,14 +227,14 @@
   align-content: flex-end;
 }
 #map .flexBox span {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   height: 35px;
   margin-bottom: 1px;
   margin-right: 1px;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 #map .flexBox .groupA,
@@ -208,14 +244,14 @@
   flex-direction: column;
 }
 .areaA {
-  color: #FFF;
+  color: #fff;
   background-color: #886e69;
 }
 .areaB {
   background-color: #fea477;
 }
 .areaC {
-  color: #FFF;
+  color: #fff;
   background-color: #d45246;
 }
 #map div.bottom {
@@ -232,7 +268,7 @@
 }
 
 #map .flexBox.last span {
-  background-color: #FFF;
+  background-color: #fff;
   margin: 0;
   opacity: 1;
 }
@@ -242,86 +278,86 @@
   margin: 0;
 }
 
-
-@-webkit-keyframes twinkling{
-    0%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 0.4;
-        font-size: 120%;
-        background-color: red;
-    }
-    100%{
-        opacity: 1;
-    }
+@-webkit-keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+    font-size: 120%;
+    background-color: red;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes twinkling{
-    0%{
-        opacity: 1;
-    }
-    50%{
-        opacity: 0.4;
-        font-size: 120%;
-        color: red;
-        background-color: white;
-    }
-    100%{
-        opacity: 1;
-    }
+@keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+    font-size: 120%;
+    color: red;
+    background-color: white;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 </style>
 
 <script>
-import headerBar from '../components/headerBar.vue'
+import headerBar from "../components/headerBar.vue";
 
 export default {
-  name: 'panelList',
+  name: "panelList",
   components: {
     headerBar
   },
-  data () {
+  data() {
     return {
-      activeBtn: 'list',
-      activedBlock: '',
-      blocks:{
-        groupA: ['B-06','B-05','B-04','B-03','B-02','B-01'],
-        groupB: ['A-11','A-10','A-09','A-08','A-07','A-06'],
-        groupC: ['A-05','A-04','A-03','A-02'],
-        groupD: ['B-07','B-08','B-09','B-10','B-11','B-12','B-13'],
-        groupE: ['C-01','C-02','C-03']
+      activeBtn: "list",
+      activedBlock: "",
+      blocks: {
+        groupA: ["B-06", "B-05", "B-04", "B-03", "B-02", "B-01"],
+        groupB: ["A-11", "A-10", "A-09", "A-08", "A-07", "A-06"],
+        groupC: ["A-05", "A-04", "A-03", "A-02"],
+        groupD: ["B-07", "B-08", "B-09", "B-10", "B-11", "B-12", "B-13"],
+        groupE: ["C-01", "C-02", "C-03"]
       },
       timer: ""
-    }
+    };
   },
   computed: {
-    panelParts () {
-      return this.$store.state.panelParts
+    panelParts() {
+      return this.$store.state.panelParts;
     },
-    activeBtn () {
-      console.log(this.activeBtn)
+    activeBtn() {
+      console.log(this.activeBtn);
     }
   },
   methods: {
     getPanelInfo(pid) {
-      return this.$store.getters.getPanelById(pid)
+      return this.$store.getters.getPanelById(pid);
     },
     fixNum(num) {
-      return (''+num).length < 2 ? ((new Array(2 + 1)).join('0') + num).slice(-2) : '' + num;
+      return ("" + num).length < 2
+        ? (new Array(2 + 1).join("0") + num).slice(-2)
+        : "" + num;
     },
     showMap(id) {
       clearInterval(this.timer);
       this.activedBlock = id;
-      this.activeBtn = 'map';
+      this.activeBtn = "map";
       this.clearBlock();
     },
     clearBlock() {
       this.timer = setInterval(() => {
         this.activedBlock = "";
         clearInterval(this.timer);
-      }, 6000)
+      }, 6000);
     }
   }
-}
+};
 </script>
