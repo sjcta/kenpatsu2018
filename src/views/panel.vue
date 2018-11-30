@@ -52,7 +52,7 @@
           </div>
         </v-list>
 
-        <div id="map" class="elevation-3" v-if="activeBtn == 'map'">
+        <div id="map" class="elevation-3" v-if="activeBtn=='map'">
           <v-layout>
             <v-flex xs12 class="bg">
               <div class="flexBox first">
