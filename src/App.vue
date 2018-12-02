@@ -1,9 +1,7 @@
 <template>
   <v-app>
       <transition :name="transitionName">
-        <keep-alive>
           <router-view v-on:changeLang="changeLang"></router-view>
-        </keep-alive>
       </transition>
   </v-app>
 </template>
@@ -14,7 +12,8 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
   #app {
-    background: #FFF url("./assets/bg_grey.png") fixed 20%;
+    background: #FFF url("./assets/bg_grey.png") fixed cover 20%;
+    z-index:-1;
   }
   footer {
     border-top: 1px solid #eee;

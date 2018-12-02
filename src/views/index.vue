@@ -99,6 +99,9 @@
 </template>
 
 <style scoped>
+.v-card {
+  opacity: .7;
+}
 #info .date {
   margin: 15px 0;
   color: #0b6fb6;
