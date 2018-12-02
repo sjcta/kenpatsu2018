@@ -11,9 +11,18 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  #app {
-    background: #FFF url("./assets/bg_grey.png") fixed cover 20%;
-    z-index:-1;
+  #app:before {
+    content: ' ';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    background: url('./assets/bg_grey.png') no-repeat center center;
+    background-size: cover;
+    will-change: transform;
+    z-index: -1;
   }
   footer {
     border-top: 1px solid #eee;
