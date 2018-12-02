@@ -11,21 +11,22 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  #app:before {
+  body:before {
     content: ' ';
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: white;
-    background: url('./assets/bg_grey.png') no-repeat center center;
-    background-size: cover;
-    will-change: transform;
     z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('./assets/bg_grey.png') center 0 repeat;
+    background-size: 20%;
   }
   footer {
     border-top: 1px solid #eee;
+  }
+  .theme--light.application {
+    background: none;
   }
   .v-toolbar > .title {
     font-size: 18px;

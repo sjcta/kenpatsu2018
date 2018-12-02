@@ -331,19 +331,11 @@ export default {
   computed: {
     panelParts() {
       return this.$store.state.panelParts;
-    },
-    activeBtn() {
-      console.log(this.activeBtn);
     }
   },
   methods: {
     getPanelInfo(pid) {
       return this.$store.getters.getPanelById(pid);
-    },
-    fixNum(num) {
-      return ("" + num).length < 2
-        ? (new Array(2 + 1).join("0") + num).slice(-2)
-        : "" + num;
     },
     showMap(id) {
       clearInterval(this.timer);
