@@ -11,7 +11,7 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
-  body:before {
+  .theme--light.application:before {
     content: ' ';
     position: fixed;
     z-index: -1;
@@ -22,11 +22,11 @@
     background: url('./assets/bg_grey.png') center 0 repeat;
     background-size: 20%;
   }
-  footer {
-    border-top: 1px solid #eee;
-  }
   .theme--light.application {
     background: none;
+  }
+  footer {
+    border-top: 1px solid #eee;
   }
   .v-toolbar > .title {
     font-size: 18px;
