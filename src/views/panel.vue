@@ -16,19 +16,19 @@
           two-line
           subheader
           v-for="(part,index) in panelParts"
-          :key="index"
+          :key="'part'+index"
           class="elevation-3"
           v-if="activeBtn == 'list'"
         >
           <h3 class="text-xs-center">{{ part.title }}</h3>
 
-          <div class="segment" v-for="(segm,index) in part.segment" :key="index">
+          <div class="segment" v-for="(segm,index) in part.segment" :key="'seg'+index">
             <h4 class="blue--text">{{ segm.title }}</h4>
 
             <v-list-tile
               v-for="(item,index) in segm.panels"
               @click="showMap(getPanelInfo(item).id)"
-              :key="index"
+              :key="'theme'+index"
             >
               <v-list-tile-action>
                 <span class="key">{{ getPanelInfo(item).id }}</span>
@@ -59,7 +59,7 @@
                 <div class="groupA">
                   <span
                     v-for="(i,index) in blocks.groupA"
-                    :key="index"
+                    :key="'a' + index"
                     class="areaB"
                     :refs="i"
                     :class="{active: i==activedBlock?true:false}"
@@ -68,14 +68,14 @@
                 <div class="groupB">
                   <span
                     v-for="(i,index) in blocks.groupB"
-                    :key="index"
+                    :key="'b' + index"
                     class="areaA"
                     :refs="i"
                     :class="{active: i==activedBlock?true:false}"
                   >{{ i }}</span>
                 </div>
               </div>
-              <div class="flexBox bottom" v-for="(i,index) in blocks.groupC" :key="index">
+              <div class="flexBox bottom" v-for="(i,index) in blocks.groupC" :key="'c' + index">
                 <div>
                   <span
                     class="areaA"
@@ -88,7 +88,7 @@
                 <div class="groupC">
                   <span
                     v-for="(i,index) in blocks.groupD"
-                    :key="index"
+                    :key="'d' + index"
                     class="areaB"
                     :refs="i"
                     :class="{active: i==activedBlock?true:false}"
@@ -97,7 +97,7 @@
                 <div class="groupD">
                   <span
                     v-for="(i,index) in blocks.groupE"
-                    :key="index"
+                    :key="'e' + index"
                     class="areaC"
                     :refs="i"
                     :class="{active: i==activedBlock?true:false}"
@@ -115,8 +115,8 @@
               <div class="flexBox last">
                 <div class="groupNone">
                   <span>&nbsp;</span>
-                  <span class="block" v-for="i in 3" :key="i">&nbsp;</span>
-                  <span v-for="i in 6" :key="i">&nbsp;</span>
+                  <span class="block" v-for="i in 3" :key="'block'+i">&nbsp;</span>
+                  <span v-for="i in 6" :key="'gray'+i">&nbsp;</span>
                 </div>
               </div>
             </v-flex>
@@ -339,6 +339,8 @@ export default {
     },
     showMap(id) {
       clearInterval(this.timer);
+      this.scrollTop;
+      console.log(id);
       this.activedBlock = id;
       this.activeBtn = "map";
       this.clearBlock();
@@ -348,6 +350,10 @@ export default {
         this.activedBlock = "";
         clearInterval(this.timer);
       }, 6000);
+    },
+    scrollTop() {
+      console.log('scroll 200');
+      $('#app').scrollTop(200);
     }
   }
 };
