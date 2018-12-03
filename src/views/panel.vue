@@ -258,6 +258,7 @@
 }
 #map span.active {
   opacity: 1;
+  animation: twinkling 1s infinite ease-in-out;
   -webkit-animation: twinkling 1s infinite ease-in-out;
 }
 
