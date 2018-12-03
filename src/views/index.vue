@@ -15,6 +15,7 @@
         <v-card>
           <v-card-text id="info">
             <p class="text-xs-center date headline">{{ $vuetify.t('$vuetify.index.date') }}</p>
+            <p class="text-xs-center gray--text">10:00 ~ 18:00</p>
             <p class="text-xs-center loca body-2" v-html="$vuetify.t('$vuetify.index.loca')"></p>
           </v-card-text>
         </v-card>
@@ -93,7 +94,7 @@
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.46c</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.47a</v-flex>
     </v-footer>
   </div>
 </template>
@@ -103,8 +104,11 @@
   opacity: .7;
 }
 #info .date {
-  margin: 15px 0;
+  margin: 5px 0;
   color: #0b6fb6;
+}
+#info .loca {
+  margin-bottom: 5px;
 }
 h1 {
   line-height: 50px;

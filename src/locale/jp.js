@@ -24,7 +24,13 @@ export default {
       tel: '86-10-82862918<br />内線411'
     }
   },
-  agenda: {},
+  agenda: {
+    steps: {
+      start: '<受付開始>',
+      poster: '研究発表会ポスター展示(デモを含む)',
+      lunch: '昼食<br />（文津ホテル2F怡多カフェ）'
+    }
+  },
   lunchDinner: {
     lunch: '昼食',
     dinner: '懇親交流会'

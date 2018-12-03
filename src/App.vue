@@ -19,8 +19,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('./assets/bg_grey.png') center 0 repeat;
-    background-size: 20%;
+    background: url('./assets/bg_grey.png') 0 0 repeat;
   }
   .theme--light.application {
     background: none;

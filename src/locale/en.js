@@ -24,7 +24,13 @@ export default {
       tel: '86-10-82862918<br />ext.411'
     }
   },
-  agenda: {},
+  agenda: {
+    steps: {
+      start: 'Start Reception',
+      poster: 'Kenpatsu Poster Exhibition',
+      lunch: 'Lunch<br />@Wenjin Hotel 2F Reno Cafe'
+    }
+  },
   lunchDinner: {
     lunch: 'Lunch',
     dinner: 'Dinner'

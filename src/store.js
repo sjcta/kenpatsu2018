@@ -42,7 +42,7 @@ export default new Vuex.Store({
         segment: [
           {
             title: 'Open Innovation',
-            panels: ['C-01', 'C-02', 'C-03']
+            panels: ['C-01', 'C-02']
           }
         ]
       }

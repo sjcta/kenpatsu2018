@@ -140,22 +140,6 @@
 </template>
 
 <style scoped>
-/* .v-btn-toggle {
-  width: 100%;
-}
-.v-btn-toggle .v-btn {
-  width: 50%;
-}
-.v-btn-toggle .v-btn span {
-  margin-left: 5px;
-}
-.v-btn.v-btn--active {
-  background-color: #2196f3;
-  color: #FFF;
-}
-.v-btn.v-btn--active * {
-  color: #FFF;
-} */
 #panelList {
   font-size: 90%;
   margin-bottom: 50px;
@@ -212,7 +196,7 @@
 }
 #map .flexBox {
   display: flex;
-  width: 14%;
+  width: 17%;
   flex-direction: column;
   align-items: flex-start;
   text-align: center;
@@ -258,11 +242,12 @@
 }
 #map span.active {
   opacity: 1;
+  animation: twinkling 1s infinite ease-in-out;
   -webkit-animation: twinkling 1s infinite ease-in-out;
 }
 
 #map .flexBox.last {
-  width: 16%;
+  width: 15%;
   padding: 0 0 0 10px;
 }
 
@@ -319,11 +304,11 @@ export default {
       activeBtn: "list",
       activedBlock: "",
       blocks: {
-        groupA: ["B-06", "B-05", "B-04", "B-03", "B-02", "B-01"],
-        groupB: ["A-11", "A-10", "A-09", "A-08", "A-07", "A-06"],
-        groupC: ["A-05", "A-04", "A-03", "A-02"],
-        groupD: ["B-07", "B-08", "B-09", "B-10", "B-11", "B-12", "B-13"],
-        groupE: ["C-01", "C-02", "C-03"]
+        groupA: ["B-05", "B-04", "B-03", "B-02", "B-01"],
+        groupB: ["A-11", "A-10", "A-09", "A-08", "A-07", "A-06","A-05"],
+        groupC: ["A-04", "A-03", "A-02"],
+        groupD: ["B-06", "B-07", "B-08", "B-09", "B-10", "B-11", "B-12", "B-13"],
+        groupE: ["C-01", "C-02"]
       },
       timer: ""
     };
