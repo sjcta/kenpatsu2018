@@ -1,6 +1,6 @@
 <template>
   <v-app>
-      <transition :name="transitionName">
+      <transition>
           <router-view v-on:changeLang="changeLang"></router-view>
       </transition>
   </v-app>

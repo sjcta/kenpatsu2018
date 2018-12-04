@@ -6,7 +6,34 @@
       <v-container fluid>
         <v-list dense class="elevation-5">
           <div class="line"></div>
-          <div v-for="(item, index) in agendaA" :key="'partA' + index" class="agendaPart">
+
+          <div class="agendaPart">
+            <div class="timeFrom">
+              <p>9:30~</p>
+            </div>
+            <div class="contents grey lighten-3 text-xs-center align-center">
+              <p v-html="$vuetify.t('$vuetify.agenda.steps.start')"></p>
+            </div>
+          </div>
+          <div class="agendaPart">
+            <div class="timeFrom">
+              <p>10:00~</p>
+            </div>
+            <div class="btn lighten-4 align-center">
+              <v-btn block color="blue" outline to="/panel"><span v-html="$vuetify.t('$vuetify.agenda.steps.poster')"></span><v-icon right>chevron_right</v-icon></v-btn>
+            </div>
+          </div>
+          <div class="agendaPart">
+            <div class="timeFrom">
+              <p>12:00~</p>
+            </div>
+            <div class="contents grey lighten-3 text-xs-center align-center">
+              <p v-html="$vuetify.t('$vuetify.agenda.steps.lunch')"></p>
+            </div>
+          </div>
+
+
+          <!-- <div v-for="(item, index) in agendaA" :key="'partA' + index" class="agendaPart">
             <div class="timeFrom">
               <p>{{ item.time }}</p>
             </div>
@@ -17,7 +44,7 @@
                 <v-icon color="lighten-2">chevron_right</v-icon>
               </v-btn>
             </div>
-          </div>
+          </div> -->
           
           <div v-for="(item, index) in agendaB" :key="'partB' + index" class="agendaPart part2">
             <div class="timeFrom">
@@ -34,7 +61,6 @@
             <div class="timeFrom">
               <p>18:30</p>
             </div>
-
             <div class="contents grey lighten-3 text-xs-center align-center">
               <p>{{ $vuetify.t('$vuetify.lunchDinner.dinner') }}<br />({{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }})</p>
             </div>
@@ -47,7 +73,9 @@
 </template>
 
 <style scoped>
-
+#agendaPage {
+  margin-bottom: 30px;
+}
 .line {
   position: absolute;
   left: 45px;
@@ -86,6 +114,21 @@
   display: flex;
   width: 100%;
   flex-direction: row;
+}
+.agendaPart .btn {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.agendaPart .btn a {
+  height: 50px;
+  padding: 0;
+}
+.agendaPart button span {
+  width: 100%;
+}
+.agendaPart button .v-icon {
+  margin-left: 0;
 }
 
 .agendaPart .contents p {
