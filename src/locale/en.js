@@ -26,14 +26,16 @@ export default {
   },
   agenda: {
     steps: {
-      start: 'Start Reception',
+      start: '[Start Reception]',
       poster: 'Kenpatsu Poster Exhibition',
       lunch: 'Lunch<br />@Wenjin Hotel 2F Reno Cafe'
     }
   },
   lunchDinner: {
     lunch: 'Lunch',
-    dinner: 'Dinner'
+    lunchLocal: 'Wenjin Hotel 2F Reno Cafe',
+    dinner: 'Dinner',
+    dinnerLocal: 'Wenjin Hotel 5F'
   },
   panelList: {
     list: 'List',

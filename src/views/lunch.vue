@@ -14,7 +14,7 @@
           <v-card-actions>
             <div class="d-flex"> 
               <v-icon large color="darken-2">location_on</v-icon>
-              <span>Wenjin Hotel 2F Reno Café (buffet)</span>
+              <span>{{ $vuetify.t('$vuetify.lunchDinner.lunchLocal') }}</span>
             </div>
           </v-card-actions>
         </v-card>
@@ -29,7 +29,7 @@
           <v-card-actions>
             <div class="d-flex"> 
               <v-icon large color="dark-1">location_on</v-icon>
-              <span>Wenjin Hotel 5F</span>
+              <span>{{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }}</span>
             </div>
           </v-card-actions>
         </v-card>

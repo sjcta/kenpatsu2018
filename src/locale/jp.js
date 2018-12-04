@@ -27,13 +27,15 @@ export default {
   agenda: {
     steps: {
       start: '<受付開始>',
-      poster: '研究発表会ポスター展示(デモを含む)',
+      poster: '研究発表会ポスター展示<br />(デモを含む)',
       lunch: '昼食<br />（文津ホテル2F怡多カフェ）'
     }
   },
   lunchDinner: {
     lunch: '昼食',
-    dinner: '懇親交流会'
+    lunchLocal: '文津ホテル2F怡多カフェ',
+    dinner: '懇親交流会',
+    dinnerLocal: '文津国際ホテル5F'
   },
   panelList: {
     list: '一覧',
