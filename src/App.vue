@@ -11,6 +11,7 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
+  
   .theme--light.application:before {
     content: ' ';
     position: fixed;
@@ -27,6 +28,9 @@
   footer {
     border-top: 1px solid #eee;
   }
+   .v-toolbar {
+     z-index: 99;
+   }
   .v-toolbar > .title {
     font-size: 18px;
   }

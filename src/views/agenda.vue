@@ -4,9 +4,9 @@
 
     <v-content id="agendaPage">
       <v-container fluid>
-        <v-list dense>
+        <v-list dense class="elevation-5">
           <div class="line"></div>
-          <div v-for="(item, index) in agendaA" :key="'part' + index" class="agendaPart">
+          <div v-for="(item, index) in agendaA" :key="'partA' + index" class="agendaPart">
             <div class="timeFrom">
               <p>{{ item.time }}</p>
             </div>
@@ -18,18 +18,15 @@
               </v-btn>
             </div>
           </div>
-        </v-list>
-
-        
-        <v-list dense>
-          <div v-for="(item, index) in agendaB" :key="'part' + index" class="agendaPart part2">
+          
+          <div v-for="(item, index) in agendaB" :key="'partB' + index" class="agendaPart part2">
             <div class="timeFrom">
               <p v-if="item.time">{{ item.time }}</p>
             </div>
 
-            <div class="contents" :class="{'subtitle blue white--text': !item.time, 'blue--text': item.time}">
+            <div :class="{'subtitle blue white--text': !item.time, 'contents blue--text': item.time}">
               <p v-html="$vuetify.t(item.theme)"></p>
-              <span v-html="$vuetify.t(item.ppl)"></span>
+              <span v-if="item.ppl" class="font-italic" v-html="$vuetify.t(item.ppl)"></span>
             </div>
           </div>
         </v-list>
@@ -87,6 +84,7 @@
   padding: 5px;
   text-align: center;
   width: 100%;
+  font-size: 12px;
 }
 .agendaPart .contents .v-btn {
   justify-content: flex-end;
@@ -100,22 +98,27 @@
 }
 .agendaPart.part2 .contents p {
   text-align: left;
+  font-size: 14px;
   padding: 5px;
 }
 .agendaPart.part2 .contents span {
   color: #999;
-  font-size: 9px;
+  font-size: 11px;
   padding: 0 5px;
-  line-height: 1;
+  line-height: 1.2;
 }
 .agendaPart.part2 .subtitle {
-  font-size: 10px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
   border-radius: 15px;
   -moz-outline-radius: 15px;
 }
 .agendaPart.part2 .subtitle p {
+  padding: 5px;
+  margin: 0 5px;
   text-align: center;
-  padding: 2px;
+  padding: 4px;
   line-height: 1.1;
 }
 
@@ -152,23 +155,43 @@ export default {
       agendaB: [
         {
           time: '13:30~',
-          theme: 'Opening Remarks',
-          ppl: '(CSI) Funaki GM'
+          theme: '$vuetify.agenda.present.part1.theme',
+          ppl: '$vuetify.agenda.present.part1.name'
         },
         {
           time: '',
-          theme: 'Session 1<br />China Regional Strategy & (RDG) Technology',
+          theme: '$vuetify.agenda.present.part2.theme',
           ppl: ''
         },
         {
           time: '13:30~',
-          theme: 'China Regional Business Strategy',
-          ppl: 'Kokubo SVP and Executive Officer, Chief Executive for China Hitachi Gr.'
+          theme: '$vuetify.agenda.present.part3.theme',
+          ppl: '$vuetify.agenda.present.part3.name'
         },
         {
           time: '13:55~',
-          theme: 'Technology Innovation Strategy for Mid-term Management Plan 2021',
-          ppl: '(CTI) Sameshima GM'
+          theme: '$vuetify.agenda.present.part4.theme',
+          ppl: '$vuetify.agenda.present.part4.name'
+        },
+        {
+          time: '',
+          theme: '$vuetify.agenda.present.part5.theme',
+          ppl: ''
+        },
+        {
+          time: '14:10~',
+          theme: '$vuetify.agenda.present.part6.theme',
+          ppl: '$vuetify.agenda.present.part6.name'
+        },
+        {
+          time: '14:30~',
+          theme: '$vuetify.agenda.present.part7.theme',
+          ppl: '$vuetify.agenda.present.part7.name'
+        },
+        {
+          time: '15:00~',
+          theme: '$vuetify.agenda.present.part8.theme',
+          ppl: '$vuetify.agenda.present.part8.name'
         }
       ]
     }

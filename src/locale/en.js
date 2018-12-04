@@ -29,6 +29,38 @@ export default {
       start: '[Start Reception]',
       poster: 'Kenpatsu Poster Exhibition',
       lunch: 'Lunch<br />@Wenjin Hotel 2F Reno Cafe'
+    },
+    present: {
+      part1: {
+        theme: 'Opening Remarks',
+        name: '(CSI) Funaki GM'
+      },
+      part2: {
+        theme: 'Session 1 China Regional Strategy & (RDG) Technology Strategy'
+      },
+      part3: {
+        theme: 'China Regional Business Strategy',
+        name: 'Kokubo SVP and Executive Officer, Chief Executive for China Hitachi Gr.'
+      },
+      part4: {
+        theme: 'Technology Innovation Strategy for Mid-term Management Plan 2021',
+        name: '(CTI) Sameshima GM'
+      },
+      part5: {
+        theme: 'Session 2 R&D Activities in China'
+      },
+      part6: {
+        theme: 'R&D Activities Leading SIB in China',
+        name: 'Chen Yangqiu'
+      },
+      part7: {
+        theme: 'Smart Manufacturing Solutions Development for Chinese Market',
+        name: 'Zuo Bin, Wang Xin'
+      },
+      part8: {
+        theme: 'Service Solution Creation in China Utilizing AI',
+        name: 'Zheng Meng'
+      }
     }
   },
   lunchDinner: {
