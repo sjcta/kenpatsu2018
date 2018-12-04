@@ -28,7 +28,7 @@ export default {
     steps: {
       start: '[Start Reception]',
       poster: 'Kenpatsu Poster Exhibition',
-      lunch: 'Lunch<br />@Wenjin Hotel 2F Reno Cafe'
+      lunch: 'Lunch<br />(Wenjin Hotel 2F Reno Cafe)'
     },
     present: {
       part1: {

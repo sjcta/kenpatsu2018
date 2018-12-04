@@ -11,6 +11,6 @@ Vue.use(Vuetify, {
       'en': en,
       'jp' : jp
     },
-    current: 'en'
+    current: ''
   }
 })
