@@ -36,7 +36,7 @@ export default {
         name: '(CSI) Funaki GM'
       },
       part2: {
-        theme: 'Session 1 China Regional Strategy & (RDG) Technology Strategy'
+        theme: 'Session 1<br />China Regional Strategy & (RDG) Technology Strategy'
       },
       part3: {
         theme: 'China Regional Business Strategy',
@@ -47,7 +47,7 @@ export default {
         name: '(CTI) Sameshima GM'
       },
       part5: {
-        theme: 'Session 2 R&D Activities in China'
+        theme: 'Session 2<br />R&D Activities in China'
       },
       part6: {
         theme: 'R&D Activities Leading SIB in China',
@@ -60,6 +60,25 @@ export default {
       part8: {
         theme: 'Service Solution Creation in China Utilizing AI',
         name: 'Zheng Meng'
+      },
+      part9: {
+        theme: 'Expanding Electrification Technology to Accelerate Social Implementation in China Market',
+        name: 'Meng Yi'
+      },
+      part10: {
+        theme: 'Session 3<br />Open Forum: Driving Open Innovation in China'
+      },
+      part11: {
+        theme: 'HCR&D’s Open Innovation Scheme in China',
+        name: '(HCR&D)Zhang Yiwei, Expert from Tsinghua University & Zhongguancun Inno Way, GM of (HCH) related department'
+      },
+      part12: {
+        theme: 'Challenges and Prospects of Open Innovation in China',
+        name: 'Facilitator: (HCH)CTO Tanabe Shiro<br />Panelists: Same as above'
+      },
+      part13: {
+        theme: 'Closing Remarks',
+        name: 'Suzuki VP and Executive Officer, CTO, GM of R&D Group'
       }
     }
   },

@@ -24,11 +24,22 @@
               <p v-if="item.time">{{ item.time }}</p>
             </div>
 
-            <div :class="{'subtitle blue white--text': !item.time, 'contents blue--text': item.time}">
+            <div :class="{'subtitle blue white--text': !item.ppl, 'contents blue--text': item.ppl}">
               <p v-html="$vuetify.t(item.theme)"></p>
               <span v-if="item.ppl" class="font-italic" v-html="$vuetify.t(item.ppl)"></span>
             </div>
           </div>
+
+          <div class="agendaPart">
+            <div class="timeFrom">
+              <p>18:30</p>
+            </div>
+
+            <div class="contents grey lighten-3 text-xs-center align-center">
+              <p>{{ $vuetify.t('$vuetify.lunchDinner.dinner') }}<br />({{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }})</p>
+            </div>
+          </div>
+
         </v-list>
       </v-container>
     </v-content>
@@ -39,7 +50,7 @@
 
 .line {
   position: absolute;
-  left: 48px;
+  left: 45px;
   border-left: 2px solid #eee;
   top: 30px;
   bottom: 30px;
@@ -65,6 +76,7 @@
   padding: 5px 0;
   background: #FFF;
   text-align: center;
+  font-size: 10px;
 }
 .agendaPart .v-list--dense {
   height: auto;
@@ -192,7 +204,32 @@ export default {
           time: '15:00~',
           theme: '$vuetify.agenda.present.part8.theme',
           ppl: '$vuetify.agenda.present.part8.name'
-        }
+        },
+        {
+          time: '15:25~',
+          theme: '$vuetify.agenda.present.part9.theme',
+          ppl: '$vuetify.agenda.present.part9.name'
+        },
+        {
+          time: '',
+          theme: '$vuetify.agenda.present.part10.theme',
+          ppl: ''
+        },
+        {
+          time: '16:15~',
+          theme: '$vuetify.agenda.present.part11.theme',
+          ppl: '$vuetify.agenda.present.part11.name'
+        },
+        {
+          time: '',
+          theme: '$vuetify.agenda.present.part12.theme',
+          ppl: '$vuetify.agenda.present.part12.name'
+        },
+        {
+          time: '17:50~',
+          theme: '$vuetify.agenda.present.part13.theme',
+          ppl: '$vuetify.agenda.present.part13.name'
+        },
       ]
     }
   },
