@@ -2,10 +2,9 @@
   <div>
     <headerBar v-on:childLang="$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
-    <v-content id="panelList">
+    <v-content id="panelList" class="mb-9">
       <transition name="list-anim">
-      <v-container fluid v-show="activeBtn == 'list'">
-        
+      <v-container fluid v-show="activeBtn == 'list'" class="mb-9">
         <v-list
           two-line
           subheader
@@ -47,8 +46,8 @@
       </v-container>
       </transition>
 
-      <transition name="map-anim">
-      <v-container fluid v-show="activeBtn!='list'">
+      <transition name="map-anim" v-on:enter="enter">
+      <v-container fluid v-show="activeBtn!='list'" >
         <div id="map" class="elevation-3">
           <v-layout>
             <v-flex xs12 class="bg">
@@ -59,7 +58,7 @@
                     :key="'a' + index"
                     class="areaB"
                     :refs="i"
-                    :class="{active: i==activedBlock?true:false}"
+                    :class="{active: i==aniBlock?true:false}"
                   >{{ i }}</span>
                 </div>
                 <div class="groupB">
@@ -68,7 +67,7 @@
                     :key="'b' + index"
                     class="areaA"
                     :refs="i"
-                    :class="{active: i==activedBlock?true:false}"
+                    :class="{active: i==aniBlock?true:false}"
                   >{{ i }}</span>
                 </div>
               </div>
@@ -77,7 +76,7 @@
                   <span
                     class="areaA"
                     :refs="i"
-                    :class="{active: i==activedBlock?true:false}"
+                    :class="{active: i==aniBlock?true:false}"
                   >{{ i }}</span>
                 </div>
               </div>
@@ -88,7 +87,7 @@
                     :key="'d' + index"
                     class="areaB"
                     :refs="i"
-                    :class="{active: i==activedBlock?true:false}"
+                    :class="{active: i==aniBlock?true:false}"
                   >{{ i }}</span>
                 </div>
                 <div class="groupD">
@@ -97,7 +96,7 @@
                     :key="'e' + index"
                     class="areaC"
                     :refs="i"
-                    :class="{active: i==activedBlock?true:false}"
+                    :class="{active: i==aniBlock?true:false}"
                   >{{ i }}</span>
                 </div>
                 <div>
@@ -105,7 +104,7 @@
                   <span
                     class="areaA"
                     refs="A-01"
-                    :class="{'active': `A-01`==activedBlock ? true:false}"
+                    :class="{'active': `A-01`==aniBlock ? true:false}"
                   >A-01</span>
                 </div>
               </div>
@@ -140,16 +139,12 @@
 
 <style scoped>
 .container {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 60px;
-  overflow: scroll;
+  position: absolute;
+
 }
 #panelList {
   font-size: 90%;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 #panelList h3 {
   height: 40px;
@@ -157,7 +152,6 @@
   background-color: #2196f3;
   font-size: 15px;
   color: #fff;
-  margin: 10px 0 0;
 }
 #panelList h4 {
   padding: 15px 0 10px;
@@ -192,9 +186,6 @@
 }
 
 #map {
-  position: fixed;
-  left: 20px;
-  right: 20px;
   padding: 20px;
   background-color: #fff;
 }
@@ -273,20 +264,25 @@
 }
 .list-anim-enter-active {
   animation: leftEnter .3s;
-
+  -webkit-animation: leftEnter .3s; 
+  z-index:2;
 }
 .list-anim-leave-active {
   animation: leftLeave .3s;
+  -webkit-animation: leftLeave .3s;
 }
 .map-anim-enter-active {
   animation: rightEnter .3s;
+  -webkit-animation: rightEnter .3s;
+  z-index:2;
 }
 .map-anim-leave-active {
   animation: rightLeave .3s;
+  -webkit-animation: rightLeave .3s;
 }
 @keyframes leftEnter {
   from {
-    transform: translate(-50%,0);
+    transform: translate(-5%,0);
     opacity: 0;
   }
   to {
@@ -300,13 +296,13 @@
     opacity: 1;
   }
   to {
-    transform: translate(-50%,0);
-    opacity: 0;
+    transform: translate(-100%,0);
+    opacity: .5;
   }
 }
 @keyframes rightEnter {
   from {
-    transform: translate(50%,0);
+    transform: translate(5%,0);
     opacity: 0;
   }
   to {
@@ -320,8 +316,8 @@
     opacity: 1;
   }
   to {
-    transform: translate(50%,0);
-    opacity: 0;
+    transform: translate(100%,0);
+    opacity: .5;
   }
 }
 
@@ -365,7 +361,7 @@ export default {
   data() {
     return {
       activeBtn: "list",
-      activedBlock: "",
+      aniBlock: "",
       blocks: {
         groupA: ["B-05", "B-04", "B-03", "B-02", "B-01"],
         groupB: ["A-11", "A-10", "A-09", "A-08", "A-07", "A-06","A-05"],
@@ -388,13 +384,16 @@ export default {
     },
     showMap(id) {
       this.activeBtn = "map";
+      this.aniBlock = id;
+      //this.clearBlock();
+    },
+    enter(el) {
       clearInterval(this.timer);
-      this.activedBlock = id;
       this.clearBlock();
     },
     clearBlock() {
       this.timer = setInterval(() => {
-        this.activedBlock = "";
+        this.aniBlock = "";
         clearInterval(this.timer);
       }, 6000);
     }

@@ -26,8 +26,8 @@
         </v-container>
 
         <div id="buttons" class="">
-            <v-btn color="white" @click="setLang('en')">English</v-btn>
-            <v-btn color="white" @click="setLang('jp')">日本語</v-btn>
+            <v-btn large color="white" @click="setLang('en')">English</v-btn>
+            <v-btn large color="white" @click="setLang('jp')">日本語</v-btn>
         </div>
       </v-content>
     </transition>
@@ -261,6 +261,7 @@ export default {
     setLang (lang) {
       this.$vuetify.lang.current = lang;
       this.$store.state.showDoor= false;
+      this.$vuetify.goTo(0);
     },
     closeDoor () {
       this.$store.state.showDoor = true;

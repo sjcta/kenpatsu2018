@@ -12,31 +12,45 @@
 
     <v-content id="indexPage">
       <v-container fluid>
-        <v-card>
+        <!-- <v-card>
           <v-card-text id="info">
             <p class="text-xs-center date headline">{{ $vuetify.t('$vuetify.index.date') }}</p>
             <p class="text-xs-center gray--text">10:00 ~ 18:00</p>
             <p class="text-xs-center loca body-2" v-html="$vuetify.t('$vuetify.index.loca')"></p>
           </v-card-text>
-        </v-card>
+        </v-card> -->
 
         <div id="buttonList">
           <h1
             class="text-xs-center headline font-weight-bold text-uppercase"
           >{{ $vuetify.t('$vuetify.index.information') }}</h1>
 
-          <v-btn block large color="info large" to="/agenda">
-            <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.agenda') }}</span>
-          </v-btn>
-          <v-btn block large color="info large" to="/panel">
-            <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.panelList') }}</span>
-          </v-btn>
-          <v-btn block large color="info large" to="/lunchdinner">
-            <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.lunchDinner') }}</span>
-          </v-btn>
-          <v-btn block large outline color="info">
-            <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.quest') }}</span>
-          </v-btn>
+          <v-layout row wrap>
+            <v-flex  xs12 sm6 offset-sm3>
+              <v-btn block large color="info " to="/agenda">
+                <v-icon left large>today</v-icon>
+                <span class="text-capitalize">
+                  {{ $vuetify.t('$vuetify.index.agenda') }}
+                </span>
+              </v-btn>
+              <v-btn block large color="info" to="/panel">
+                <v-icon left large>mms</v-icon>
+                <span class="text-capitalize">
+                  {{ $vuetify.t('$vuetify.index.panelList') }}
+                </span>
+              </v-btn>
+              <v-btn block large color="info" to="/lunchdinner">
+                <v-icon left large>restaurant_menu</v-icon>
+                <span class="text-capitalize">
+                  {{ $vuetify.t('$vuetify.index.lunchDinner') }}
+                </span>
+              </v-btn>
+              <v-btn block large outline color="info" to="#">
+                <v-icon left large>how_to_vote</v-icon>
+                <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.quest') }}</span>
+              </v-btn>
+            </v-flex>
+          </v-layout>
         </div>
 
         <div id="contact">
@@ -95,7 +109,7 @@
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.55a</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.6</v-flex>
     </v-footer>
   </div>
 </template>
@@ -113,14 +127,17 @@
 }
 h1 {
   line-height: 50px;
-  margin: 20px 0 10px;
+  margin: 10px 0;
   color: #1f375b;
 }
 #buttonList button,
 #buttonList a {
-  height: 40px;
   margin-bottom: 10px;
   font-size: 120%;
+  height: 60px;
+}
+#buttonList .text-capitalize {
+  width: 40%;
 }
 #contact {
   margin-bottom: 10px;
