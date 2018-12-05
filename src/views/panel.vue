@@ -3,14 +3,15 @@
     <headerBar v-on:childLang="$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
     <v-content id="panelList">
-      <v-container fluid>
+      <v-fade-transition>
+      <v-container fluid v-if="activeBtn == 'list'">
+        
         <v-list
           two-line
           subheader
           v-for="(part,index) in panelParts"
           :key="'part'+index"
           class="elevation-3 mb-4"
-          v-if="activeBtn == 'list'"
         >
           <h3 class="text-xs-center">{{ $vuetify.t(part.title) }}</h3>
 
@@ -43,8 +44,12 @@
             </v-list-tile>
           </div>
         </v-list>
+      </v-container>
+      </v-fade-transition>
 
-        <div id="map" class="elevation-3" v-if="activeBtn=='map'">
+      <v-fade-transition>
+      <v-container fluid v-if="activeBtn!='list'">
+        <div id="map" class="elevation-3">
           <v-layout>
             <v-flex xs12 class="bg">
               <div class="flexBox first">
@@ -115,6 +120,8 @@
           </v-layout>
         </div>
       </v-container>
+      </v-fade-transition>
+
     </v-content>
 
     <v-bottom-nav :active.sync="activeBtn" :value="true" color="blue" fixed>

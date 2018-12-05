@@ -45,13 +45,16 @@
         </v-card>
         
         <v-dialog v-model="dialog" max-width="500px">
-          <v-card>
+          <v-card id="search">
+            <v-card-title class="headline purple darken-2 white--text pb-4">
+              {{ $vuetify.t('$vuetify.lunchDinner.find') }}
+            </v-card-title>
             <v-card-text>
               <v-text-field :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
               <small class="grey--text">{{ $vuetify.t('$vuetify.lunchDinner.sample') }}</small>
             </v-card-text>
             <v-card-actions>
-              <v-btn center block  color="primary" @click="dialog = false">{{ $vuetify.t('$vuetify.lunchDinner.submit') }}</v-btn>
+              <v-btn center block flat color="purple" @click="dialog = false">{{ $vuetify.t('$vuetify.lunchDinner.submit') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -65,8 +68,12 @@
 
 .v-card__title {
   align-items: flex-start;
-  height: 150px;
+  height: 130px;
   padding-left: 50px;
+}
+.v-dialog .v-card__title {
+  padding-left: 20px;
+  height: auto;
 }
 .v-card.lunch .v-card__title {
   background: #FFF url('../assets/bg_lunch.png') no-repeat right top;

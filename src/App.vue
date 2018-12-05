@@ -7,9 +7,9 @@
           <div id="logo"></div>
 
           <v-layout align-center justify-center id="text" class="text-xs-center white--text">
-            <p class="corp disperse">日立(中国)研究開発有限公司</p>
+            <p class="corp disperse text-xs-center">日立(中国)研究開発有限公司</p>
             <div class="headline">
-                <h1 class=" disperse">2018年度研究発表会</h1>
+                <h1 class=" text-xs-center disperse">2018年度研究発表会</h1>
                 <span>Hitachi (China) R&D Corporation 2018 Kenpatsu</span>
             </div>
 
