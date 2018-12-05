@@ -325,8 +325,7 @@ export default {
     },
     showMap(id) {
       clearInterval(this.timer);
-      this.scrollTop;
-      console.log(id);
+      this.$vuetify.goTo(0);
       this.activedBlock = id;
       this.activeBtn = "map";
       this.clearBlock();

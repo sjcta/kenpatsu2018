@@ -193,13 +193,9 @@ export default {
   created () { 
   },
   watch: {
-    $route (to, from) {
-      if (to.path !== '/') {
-        this.transitionName = 'vux-pop-in'
-      } else {
-        this.transitionName = 'vux-pop-out'
-      }
-    }
+    '$route':function(to,from){
+                this.$vuetify.goTo(0);
+            }
   },
   mounted () {
   },

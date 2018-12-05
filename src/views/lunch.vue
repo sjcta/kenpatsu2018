@@ -65,7 +65,7 @@
 
 .v-card__title {
   align-items: flex-start;
-  height: 120px;
+  height: 150px;
   padding-left: 50px;
 }
 .v-card.lunch .v-card__title {
