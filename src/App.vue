@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <transition name="door-anim" v-if="showDoor">
-      <v-content id="pop">
+    <transition name="door-anim">
+      <v-content id="pop" v-if="doorState">
         <v-container fluid fill-height>
 
           <div id="logo"></div>
@@ -21,20 +21,19 @@
               <h3>開催日時</h3>
               <span>2018年12月7日（金） 10:00-18:00</span>
             </div>
-
-            
-            <div id="buttons">
-                <v-btn color="white" @click="setLang('en')">English</v-btn>
-                <v-btn color="white" @click="setLang('jp')">日本語</v-btn>
-            </div>
           </v-layout>
 
         </v-container>
+
+        <div id="buttons" class="">
+            <v-btn color="white" @click="setLang('en')">English</v-btn>
+            <v-btn color="white" @click="setLang('jp')">日本語</v-btn>
+        </div>
       </v-content>
     </transition>
 
     <transition name="router-anim">
-        <router-view v-on:changeLang="changeLang" v-on:clearLang="clearLang"></router-view>
+        <router-view v-on:changeLang="changeLang" v-on:closeDoor="closeDoor"></router-view>
     </transition>
   </v-app>
 </template>
@@ -42,23 +41,22 @@
 <style>
 
   .door-anim-enter-active {
-    animation: dropDown .8s;
-    animation-delay: .5s;
+    animation: dropDown .5s;
   }
   .door-anim-leave-active {
     animation: goOut .5s;
   }
   .router-anim-enter-active {
     animation: fadeIn .5s;
-    animation-delay: .2s;
+    animation-delay: 0s;
   }
   .router-anim-leave-active {
     animation: fadeOut .3s;
   }
   @keyframes dropDown {
     from {
-      transform: translate(0,-50%);
-      opacity: 0;
+      transform: translate(0,100%);
+      opacity: 1;
     }
     to {
       transform: translate(0);
@@ -71,7 +69,7 @@
       opacity: 1;
     }
     to {
-      transform: translate(0,-50%);
+      transform: translate(0,100%);
       opacity: 0;
     }
   }
@@ -115,6 +113,10 @@
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
   }
+  .fixed {
+    position: fixed;
+
+  }
   .theme--light.application:before {
     content: ' ';
     position: fixed;
@@ -143,17 +145,17 @@
   }
 
   #pop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: #000 url('./assets/bg-01.png') no-repeat top center;
     background-size: cover;
-    z-index: 1000;
+    z-index: 999;
   }
   #pop .container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -162,7 +164,7 @@
   #pop #logo {
     position: absolute;
     display: block;
-    top: 0px;
+    top: 50px;
     right: 50px;
     width: 120px;
     height: 50px;
@@ -210,7 +212,12 @@
     line-height: 1.5;
   }
   #buttons {
-    margin-top: 50px;
+    position: absolute;
+    display: flex;
+    bottom: 50px;
+    left:0;
+    right: 0;
+    justify-content: center;
   }
   .disperse {
     text-align: justify;
@@ -226,7 +233,6 @@ export default {
   },
   data () {
     return {
-      showDoor: true
     }
   },
   created () { 
@@ -237,10 +243,14 @@ export default {
             }
   },
   mounted () {
+    //console.log(this.$store.state.showDoor)
   },
   computed: {
     isLangSet() {
       return this.$vuetify.lang.current!="" ? true:false;
+    },
+    doorState() {
+      return this.$store.state.showDoor
     }
   },
   methods: {
@@ -250,10 +260,10 @@ export default {
     },
     setLang (lang) {
       this.$vuetify.lang.current = lang;
-      this.showDoor = false;
+      this.$store.state.showDoor= false;
     },
-    clearLang () {
-      this.showDoor = true;
+    closeDoor () {
+      this.$store.state.showDoor = true;
     }
   }
 }

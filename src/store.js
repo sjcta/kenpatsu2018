@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     states: 'turn-left',
+    showDoor: true,
     panelParts: [
       {
         title: '$vuetify.panelList.parts[0].title',

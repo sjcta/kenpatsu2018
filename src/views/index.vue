@@ -2,7 +2,7 @@
   <div>
     <v-toolbar app dark flat>
       <v-toolbar-title class="title text-uppercase">
-        <span @click="$emit('clearLang')">{{ $vuetify.t('$vuetify.header.title') }}</span>
+        <span @click="$emit('closeDoor')">{{ $vuetify.t('$vuetify.header.title') }}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn outline color="white" @click="$emit('changeLang')">
@@ -95,7 +95,7 @@
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.54b</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.55</v-flex>
     </v-footer>
   </div>
 </template>
