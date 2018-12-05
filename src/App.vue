@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <transition name="door-anim">
-      <v-content id="pop" v-if="!isLangSet">
+    <transition name="door-anim" v-if="showDoor">
+      <v-content id="pop">
         <v-container fluid fill-height>
 
           <div id="logo"></div>
@@ -33,8 +33,8 @@
       </v-content>
     </transition>
 
-    <transition name="router-anim" v-if="isLangSet">
-        <router-view v-on:changeLang="changeLang"></router-view>
+    <transition name="router-anim">
+        <router-view v-on:changeLang="changeLang" v-on:clearLang="clearLang"></router-view>
     </transition>
   </v-app>
 </template>
@@ -42,22 +42,22 @@
 <style>
 
   .door-anim-enter-active {
-    animation: dropDown .5s;
-    animation-delay: .3s;
+    animation: dropDown .8s;
+    animation-delay: .5s;
   }
   .door-anim-leave-active {
     animation: goOut .5s;
   }
   .router-anim-enter-active {
     animation: fadeIn .5s;
-    animation-delay: .3s;
+    animation-delay: .2s;
   }
   .router-anim-leave-active {
-    animation: fadeOut .5s;
+    animation: fadeOut .3s;
   }
   @keyframes dropDown {
     from {
-      transform: translate(0,-100%);
+      transform: translate(0,-50%);
       opacity: 0;
     }
     to {
@@ -67,10 +67,11 @@
   }
   @keyframes goOut {
     from {
-      transform: translate(0)
+      transform: translate(0);
+      opacity: 1;
     }
     to {
-      transform: translate(0,-100%);
+      transform: translate(0,-50%);
       opacity: 0;
     }
   }
@@ -87,6 +88,26 @@
       opacity: 1
     }
     to {
+      opacity: 0;
+    }
+  }
+  @keyframes moveIn {
+    from {
+      transform: translate(-50%, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+  @keyframes moveOut {
+    from {
+      transform: translate(0);
+      opacity: 1
+    }
+    to {
+      transform: translate(50%, 0);
       opacity: 0;
     }
   }
@@ -121,44 +142,6 @@
     padding: 5px;
   }
 
-  .vux-pop-in-enter-active,
-  .vux-pop-in-leave-active {
-      will-change: transform;
-      transition: all 500ms;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-      perspective: 1000;
-      overflow: hidden;
-  }
-  .vux-pop-out-enter {
-      opacity: 0;
-      transform: translate3d(-100%, 0, 0);
-  }
-  .vux-pop-out-leave-active {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  .vux-pop-in-enter {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-  .vux-pop-in-leave-active {
-    opacity: 0; transform: translate3d(-100%, 0, 0);
-  }
-
-  .router-view{
-    height:100%;
-    width: 100%;
-    position: absolute;
-    -webkit-transition: all .3s cubic-bezier(1,0,.1,1);
-    -moz-transition: all .3s cubic-bezier(1,0,.1,1);
-    -ms-transition: all .3s cubic-bezier(1,0,.1,1);
-    -o-transition: all .3s cubic-bezier(1,0,.1,1);
-    transition: all .3s cubic-bezier(1,0,.1,1);
-  }
-
   #pop {
     position: absolute;
     top: 0;
@@ -169,10 +152,17 @@
     background-size: 100%;
     z-index: 1000;
   }
+  #pop .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
   #pop #logo {
     position: absolute;
     display: block;
-    top: 50px;
+    top: 0px;
     right: 50px;
     width: 120px;
     height: 50px;
@@ -182,13 +172,10 @@
   #pop #text {
     display: flex;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 35px;
   }
   #pop #text p {
     width: 100%;
-  }
-  #pop .fill-height {
-    height: 100%;
   }
   #pop #text .headline {
     width: 100%;
@@ -239,7 +226,7 @@ export default {
   },
   data () {
     return {
-      transitionName: 'vux-pop-out'
+      showDoor: true
     }
   },
   created () { 
@@ -258,11 +245,15 @@ export default {
   },
   methods: {
     changeLang () {
-      const clang = this.$vuetify.lang.current
-      this.$vuetify.lang.current = (clang === 'en') ? 'jp' : 'en'
+      const clang = this.$vuetify.lang.current;
+      this.$vuetify.lang.current = (clang === 'en') ? 'jp' : 'en';
     },
     setLang (lang) {
       this.$vuetify.lang.current = lang;
+      this.showDoor = false;
+    },
+    clearLang () {
+      this.showDoor = true;
     }
   }
 }

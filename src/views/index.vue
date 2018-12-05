@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-toolbar app dark scroll-off-screen flat>
+    <v-toolbar app dark flat>
       <v-toolbar-title class="title text-uppercase">
-        <span @click="clearLangSet()">{{ $vuetify.t('$vuetify.header.title') }}</span>
+        <span @click="$emit('clearLang')">{{ $vuetify.t('$vuetify.header.title') }}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn outline color="white" @click="$emit('changeLang')">
@@ -89,12 +89,13 @@
               </v-btn>
             </v-flex>
           </v-layout>
+
         </div>
       </v-container>
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.53</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.54</v-flex>
     </v-footer>
   </div>
 </template>
@@ -104,7 +105,7 @@
   opacity: .7;
 }
 #info .date {
-  margin: 5px 0;
+  margin: 0;
   color: #0b6fb6;
 }
 #info .loca {
@@ -112,17 +113,17 @@
 }
 h1 {
   line-height: 50px;
-  margin: 30px 0 15px;
+  margin: 20px 0 10px;
   color: #1f375b;
 }
 #buttonList button,
 #buttonList a {
-  height: 50px;
+  height: 40px;
   margin-bottom: 10px;
   font-size: 120%;
 }
 #contact {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #contact button {
   font-size: 12px;
@@ -142,8 +143,11 @@ h1 {
 </style>
 
 <script>
+
 export default {
   name: "indexPage",
+  mounted(){
+  },
   methods: {
     mailto(val) {
       document.location.href = "mailto:" + val;
@@ -151,9 +155,6 @@ export default {
     telto(val) {
       document.location.href =
         "tel:+" + val.replace(/[^0-9]/gi, "").substring(0, 12);
-    },
-    clearLangSet() {
-      this.$vuetify.lang.current = "";
     }
   }
 };
