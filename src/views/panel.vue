@@ -388,6 +388,7 @@ export default {
       //this.clearBlock();
     },
     enter(el) {
+      this.$vuetify.goTo(0);
       clearInterval(this.timer);
       this.clearBlock();
     },
