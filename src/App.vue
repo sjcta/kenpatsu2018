@@ -149,7 +149,7 @@
     right: 0;
     bottom: 0;
     background: #000 url('./assets/bg-01.png') no-repeat top center;
-    background-size: 100%;
+    background-size: cover;
     z-index: 1000;
   }
   #pop .container {
@@ -183,7 +183,7 @@
     margin-bottom: 30px;
   }
   #pop #text .headline h1 {
-    font-size: 130%;
+    font-size: 120%;
     line-height: 1;
   }
   #pop #text .headline span {
@@ -197,7 +197,7 @@
   }
   #pop #text .location,
   #pop #text .date {
-    width: 80%;
+    width: 90%;
     font-size: 90%;
     margin-bottom: 20px;
   }
