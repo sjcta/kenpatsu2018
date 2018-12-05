@@ -1,43 +1,72 @@
 <template>
   <v-app>
-    <v-content id="pop"  transition="fade-transition" v-show="isLangSet">
-      <v-container fluid fill-height>
+    <transition name="door-anim">
+      <v-content id="pop" v-if="!isLangSet">
+        <v-container fluid fill-height>
 
-        <div id="logo"></div>
+          <div id="logo"></div>
 
-        <v-layout align-center justify-center id="text" class="text-xs-center white--text">
-          <p class="corp disperse">日立(中国)研究開発有限公司</p>
-          <div class="headline">
-              <h1 class=" disperse">2018年度研究発表会</h1>
-              <span>Hitachi (China) R&D Corporation 2018 Kenpatsu</span>
-          </div>
+          <v-layout align-center justify-center id="text" class="text-xs-center white--text">
+            <p class="corp disperse">日立(中国)研究開発有限公司</p>
+            <div class="headline">
+                <h1 class=" disperse">2018年度研究発表会</h1>
+                <span>Hitachi (China) R&D Corporation 2018 Kenpatsu</span>
+            </div>
 
-          <div class="location">
-            <h3>発表会場</h3>
-            <span>文津国際ホテル 5F陽光庁<br /> (中国北京市海淀区成府路清華大学南門)</span>
-          </div>
-          <div class="date">
-            <h3>開催日時</h3>
-            <span>2018年12月7日（金） 10:00-18:00</span>
-          </div>
+            <div class="location">
+              <h3>発表会場</h3>
+              <span>文津国際ホテル 5F陽光庁<br /> (中国北京市海淀区成府路清華大学南門)</span>
+            </div>
+            <div class="date">
+              <h3>開催日時</h3>
+              <span>2018年12月7日（金） 10:00-18:00</span>
+            </div>
 
-          
-          <div id="buttons">
-              <v-btn color="white" @click="setLang('en')">English</v-btn>
-              <v-btn color="white" @click="setLang('jp')">日本語</v-btn>
-          </div>
-        </v-layout>
+            
+            <div id="buttons">
+                <v-btn color="white" @click="setLang('en')">English</v-btn>
+                <v-btn color="white" @click="setLang('jp')">日本語</v-btn>
+            </div>
+          </v-layout>
 
-      </v-container>
-    </v-content>
+        </v-container>
+      </v-content>
+    </transition>
 
-    <transition>
+    <transition v-if="isLangSet">
         <router-view v-on:changeLang="changeLang"></router-view>
     </transition>
+
+    <a class="text-xs-center" @click="clearLangSet()">Clear LangSet</a>
   </v-app>
 </template>
 
 <style>
+
+  .door-anim-enter-active {
+    animation: dropDown 1s;
+  }
+  .door-anim-leave-active {
+    animation: goOut .5s;
+  }
+  @keyframes dropDown {
+    from {
+      transform: translate(0,-100%)
+    }
+    to {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+  @keyframes goOut {
+    from {
+      transform: translate(0)
+    }
+    to {
+      transform: translate(0,-100%);
+      opacity: 0;
+    }
+  }
   body {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
@@ -120,7 +149,7 @@
   #pop #logo {
     position: absolute;
     display: block;
-    top: -10px;
+    top: 50px;
     right: 50px;
     width: 120px;
     height: 50px;
@@ -136,7 +165,7 @@
     width: 100%;
   }
   #pop .fill-height {
-    height: 80%;
+    height: 100%;
   }
   #pop #text .headline {
     width: 100%;
@@ -201,7 +230,7 @@ export default {
   },
   computed: {
     isLangSet() {
-      return this.$vuetify.lang.current=="" ? true:false;
+      return this.$vuetify.lang.current!="" ? true:false;
     }
   },
   methods: {
@@ -210,7 +239,10 @@ export default {
       this.$vuetify.lang.current = (clang === 'en') ? 'jp' : 'en'
     },
     setLang (lang) {
-      this.$vuetify.lang.current = (lang === 'en') ? 'jp' : 'en'
+      this.$vuetify.lang.current = lang;
+    },
+    clearLangSet() {
+      this.$vuetify.lang.current = "";
     }
   }
 }

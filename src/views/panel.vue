@@ -4,20 +4,12 @@
 
     <v-content id="panelList">
       <v-container fluid>
-        <!-- <v-btn-toggle  v-model="toggleTab" mandatory>
-          <v-btn flat value="list">
-            <v-icon>list</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.list') }}</span>
-          </v-btn>
-          <v-btn flat value="map">
-            <v-icon>map</v-icon> <span>{{ $vuetify.t('$vuetify.panelList.map') }}</span>
-          </v-btn>
-        </v-btn-toggle>-->
         <v-list
           two-line
           subheader
           v-for="(part,index) in panelParts"
           :key="'part'+index"
-          class="elevation-3"
+          class="elevation-3 mb-4"
           v-if="activeBtn == 'list'"
         >
           <h3 class="text-xs-center">{{ $vuetify.t(part.title) }}</h3>
