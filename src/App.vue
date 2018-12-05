@@ -33,25 +33,32 @@
       </v-content>
     </transition>
 
-    <transition v-if="isLangSet">
+    <transition name="router-anim" v-if="isLangSet">
         <router-view v-on:changeLang="changeLang"></router-view>
     </transition>
-
-    <a class="text-xs-center" @click="clearLangSet()">Clear LangSet</a>
   </v-app>
 </template>
 
 <style>
 
   .door-anim-enter-active {
-    animation: dropDown 1s;
+    animation: dropDown .5s;
+    animation-delay: .3s;
   }
   .door-anim-leave-active {
     animation: goOut .5s;
   }
+  .router-anim-enter-active {
+    animation: fadeIn .5s;
+    animation-delay: .3s;
+  }
+  .router-anim-leave-active {
+    animation: fadeOut .5s;
+  }
   @keyframes dropDown {
     from {
-      transform: translate(0,-100%)
+      transform: translate(0,-100%);
+      opacity: 0;
     }
     to {
       transform: translate(0);
@@ -64,6 +71,22 @@
     }
     to {
       transform: translate(0,-100%);
+      opacity: 0;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1
+    }
+    to {
       opacity: 0;
     }
   }
@@ -240,9 +263,6 @@ export default {
     },
     setLang (lang) {
       this.$vuetify.lang.current = lang;
-    },
-    clearLangSet() {
-      this.$vuetify.lang.current = "";
     }
   }
 }

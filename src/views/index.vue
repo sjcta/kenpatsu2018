@@ -2,7 +2,7 @@
   <div>
     <v-toolbar app dark scroll-off-screen flat>
       <v-toolbar-title class="title text-uppercase">
-        <span>{{ $vuetify.t('$vuetify.header.title') }}</span>
+        <span @click="clearLangSet()">{{ $vuetify.t('$vuetify.header.title') }}</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn outline color="white" @click="$emit('changeLang')">
@@ -151,6 +151,9 @@ export default {
     telto(val) {
       document.location.href =
         "tel:+" + val.replace(/[^0-9]/gi, "").substring(0, 12);
+    },
+    clearLangSet() {
+      this.$vuetify.lang.current = "";
     }
   }
 };
