@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar app dark scroll-off-screen flat fixed >
+    <v-toolbar app dark flat fixed >
       <v-btn flat color="white" class="backTop" @click="back">
         <v-icon left large>chevron_left</v-icon>
       </v-btn>

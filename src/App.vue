@@ -190,7 +190,7 @@ export default {
       transitionName: 'vux-pop-out'
     }
   },
-  created () {
+  created () { 
   },
   watch: {
     $route (to, from) {
@@ -200,6 +200,8 @@ export default {
         this.transitionName = 'vux-pop-out'
       }
     }
+  },
+  mounted () {
   },
   computed: {
     isLangSet() {

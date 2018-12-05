@@ -90,7 +90,75 @@ export default {
   },
   panelList: {
     list: 'List',
-    map: 'Map'
+    map: 'Map',
+    parts: [
+      {
+        title: 'Business Incubation',
+        segment: [
+          'Urban Digital',
+          'Smart Manufacturing & Logistics',
+          'Healthcare & Nursing'
+        ]
+      }, {
+        title: 'Baseload Technology',
+        segment: [
+          'Design',
+          'Digital Technology',
+          'Materials & Monozukur'
+        ]
+      }, {
+        title: 'Open Innovation',
+        segment: [
+          'Open Innovation'
+        ]
+      }
+    ],
+    panels: {
+      1: {
+        title: 'Urban mobility solution in China',
+        charge: '関口隆昭'
+      },
+      2: {
+        title: 'Robot Collaboration Platform - GRACE',
+        charge: '鲁时雨、车航宇、裴雅超'
+      },
+      3: {
+        title: 'Suspect tracking system for police',
+        charge: '谢雨来'
+      },
+      4: {
+        title: 'Suspect tracking system for police',
+        charge: '谢雨来'
+      },
+      5: {
+        title: 'Sales channel optimized allocation solution',
+        charge: '张学，张岱'
+      },
+      6: {
+        title: 'Pentaho based data insight into smart production process',
+        charge: '范虎岳'
+      },
+      7: {
+        title: 'Smart international logistics solution connected in China-SEA area',
+        charge: '赖素红'
+      },
+      8: {
+        title: 'Improve production efficiency based on MES data analysis for site improvement',
+        charge: '苏银蕊、赖素红、左濱'
+      },
+      9: {
+        title: 'Robotic cable assembly technology for flexible wire',
+        charge: '苏银蕊'
+      },
+      10: {
+        title: 'Use Omika production system to expand Hitachi’s solution along manufacturing value chain',
+        charge: '姚开鹏'
+      },
+      11: {
+        title: 'Digital care management',
+        charge: '宫崎邦彦'
+      }
+    }
   },
   noDataText: 'No data available'
 }

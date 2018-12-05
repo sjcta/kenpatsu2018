@@ -8,40 +8,40 @@ export default new Vuex.Store({
     states: 'turn-left',
     panelParts: [
       {
-        title: 'Business Incubation',
+        title: '$vuetify.panelList.parts[0].title',
         segment: [
           {
-            title: 'Healthcare & Nursing',
-            panels: ['A-01']
+            title: '$vuetify.panelList.parts[0].segment[0]',
+            panels: ['A-01', 'A-02', 'A-03']
           }, {
-            title: 'Urban Digital',
-            panels: ['A-02', 'A-03', 'A-04']
+            title: '$vuetify.panelList.parts[0].segment[1]',
+            panels: ['A-04', 'A-05', 'A-06', 'A-07', 'A-08', 'A-09', 'A-10']
           }, {
-            title: 'Smart Manufacturing & Logistics',
-            panels: ['A-05', 'A-06', 'A-07', 'A-08', 'A-09', 'A-10', 'A-11']
+            title: '$vuetify.panelList.parts[0].segment[2]',
+            panels: ['A-11']
           }
         ]
       }, {
-        title: 'Baseload Technology',
+        title: '$vuetify.panelList.parts[1].title',
         segment: [
           {
-            title: 'Design',
+            title: '$vuetify.panelList.parts[1].segment[0]',
             panels: ['B-01', 'B-02', 'B-03']
           },
           {
-            title: 'Digital Technology',
+            title: '$vuetify.panelList.parts[1].segment[1]',
             panels: ['B-04', 'B-05', 'B-06', 'B-07', 'B-08']
           },
           {
-            title: 'Materials & Monozukuri',
+            title: '$vuetify.panelList.parts[1].segment[2]',
             panels: ['B-09', 'B-10', 'B-11', 'B-12', 'B-13']
           }
         ]
       }, {
-        title: 'Open Innovation',
+        title: '$vuetify.panelList.parts[2].title',
         segment: [
           {
-            title: 'Open Innovation',
+            title: '$vuetify.panelList.parts[2].segment[0]',
             panels: ['C-01', 'C-02']
           }
         ]
@@ -50,58 +50,58 @@ export default new Vuex.Store({
     panelInfo: [
       {
         'id': 'A-01',
-        'title': 'Digital care management',
-        'charge': '宫崎邦彦',
+        'title': '$vuetify.panelList.panels[1].title',
+        'charge': '$vuetify.panelList.panels[1].charge',
         'dept': 'DS'
       }, {
         'id': 'A-02',
-        'title': 'Urban mobility solution in China',
-        'charge': '関口隆昭',
+        'title': '$vuetify.panelList.panels[2].title',
+        'charge': '$vuetify.panelList.panels[2].charge',
         'dept': 'DS'
       }, {
         'id': 'A-03',
-        'title': 'Robot collaboration platform - GRACE',
-        'charge': '鲁时雨，车航宇，裴雅超',
+        'title': '$vuetify.panelList.panels[3].title',
+        'charge': '$vuetify.panelList.panels[3].charge',
         'dept': 'DS'
       }, {
         'id': 'A-04',
-        'title': 'Suspect Tracking System for Police',
-        'charge': '谢雨来',
+        'title': '$vuetify.panelList.panels[4].title',
+        'charge': '$vuetify.panelList.panels[4].charge',
         'dept': 'IT'
       }, {
         'id': 'A-05',
-        'title': 'Sale channel optimized allocation solution',
-        'charge': '张学，张岱',
+        'title': '$vuetify.panelList.panels[5].title',
+        'charge': '$vuetify.panelList.panels[5].charge',
         'dept': 'IT'
       }, {
         'id': 'A-06',
-        'title': 'Pentaho based data Insight into smart production process',
-        'charge': '范虎岳',
+        'title': '$vuetify.panelList.panels[6].title',
+        'charge': '$vuetify.panelList.panels[6].charge',
         'dept': 'IT'
       }, {
         'id': 'A-07',
-        'title': 'Expansion of Logistics Vehicle Operation Solution in China Market',
-        'charge': '郑萌，罗蜀钰',
+        'title': '$vuetify.panelList.panels[7].title',
+        'charge': '$vuetify.panelList.panels[7].charge',
         'dept': 'IT'
       }, {
         'id': 'A-08',
-        'title': '現場改善に向けたMESデータ分析による生産効率向上技術',
-        'charge': '苏银蕊，赖素红，左濱',
+        'title': '$vuetify.panelList.panels[8].title',
+        'charge': '$vuetify.panelList.panels[8].charge',
         'dept': 'GP'
       }, {
         'id': 'A-09',
-        'title': 'Robotic cable assembly technology for flexible wire',
-        'charge': '苏银蕊',
+        'title': '$vuetify.panelList.panels[9].title',
+        'charge': '$vuetify.panelList.panels[9].charge',
         'dept': 'GP'
       }, {
         'id': 'A-10',
-        'title': '（お）商材をビークルとした製造フルバリューチェーンの展開',
-        'charge': '姚开鹏',
+        'title': '$vuetify.panelList.panels[10].title',
+        'charge': '$vuetify.panelList.panels[10].charge',
         'dept': 'GP'
       }, {
         'id': 'A-11',
-        'title': 'Smart International Logistics Solution connected in China-SEA Area',
-        'charge': '赖素红',
+        'title': '$vuetify.panelList.panels[11].title',
+        'charge': '$vuetify.panelList.panels[11].charge',
         'dept': 'GP'
       }, {
         'id': 'B-01',

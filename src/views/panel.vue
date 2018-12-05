@@ -20,10 +20,10 @@
           class="elevation-3"
           v-if="activeBtn == 'list'"
         >
-          <h3 class="text-xs-center">{{ part.title }}</h3>
+          <h3 class="text-xs-center">{{ $vuetify.t(part.title) }}</h3>
 
           <div class="segment" v-for="(segm,index) in part.segment" :key="'seg'+index">
-            <h4 class="blue--text">{{ segm.title }}</h4>
+            <h4 class="blue--text">{{ $vuetify.t(segm.title) }}</h4>
 
             <v-list-tile
               v-for="(item,index) in segm.panels"
@@ -36,11 +36,11 @@
 
               <v-list-tile-content>
                 <v-layout align-start justify-start column fill-height>
-                  <div class="theme">{{ getPanelInfo(item).title }}</div>
+                  <div class="theme">{{ $vuetify.t(getPanelInfo(item).title) }}</div>
                   <div>
                     <span
                       class="charge grey--text"
-                    >[{{ getPanelInfo(item).dept }}] {{ getPanelInfo(item).charge }}</span>
+                    >[{{ getPanelInfo(item).dept }}] {{ $vuetify.t(getPanelInfo(item).charge) }}</span>
                   </div>
                 </v-layout>
               </v-list-tile-content>
@@ -313,6 +313,7 @@ export default {
       timer: ""
     };
   },
+
   computed: {
     panelParts() {
       return this.$store.state.panelParts;
@@ -335,10 +336,6 @@ export default {
         this.activedBlock = "";
         clearInterval(this.timer);
       }, 6000);
-    },
-    scrollTop() {
-      console.log('scroll 200');
-      $('#app').scrollTop(200);
     }
   }
 };
