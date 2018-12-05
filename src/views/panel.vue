@@ -3,8 +3,8 @@
     <headerBar v-on:childLang="$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
     <v-content id="panelList">
-      <v-fade-transition>
-      <v-container fluid v-if="activeBtn == 'list'">
+      <transition name="list-anim">
+      <v-container fluid v-show="activeBtn == 'list'">
         
         <v-list
           two-line
@@ -45,10 +45,10 @@
           </div>
         </v-list>
       </v-container>
-      </v-fade-transition>
+      </transition>
 
-      <v-fade-transition>
-      <v-container fluid v-if="activeBtn!='list'">
+      <transition name="map-anim">
+      <v-container fluid v-show="activeBtn!='list'">
         <div id="map" class="elevation-3">
           <v-layout>
             <v-flex xs12 class="bg">
@@ -120,7 +120,7 @@
           </v-layout>
         </div>
       </v-container>
-      </v-fade-transition>
+      </transition>
 
     </v-content>
 
@@ -139,6 +139,14 @@
 </template>
 
 <style scoped>
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 60px;
+  overflow: scroll;
+}
 #panelList {
   font-size: 90%;
   margin-bottom: 50px;
@@ -184,6 +192,9 @@
 }
 
 #map {
+  position: fixed;
+  left: 20px;
+  right: 20px;
   padding: 20px;
   background-color: #fff;
 }
@@ -260,6 +271,59 @@
   border: 1px solid #eee;
   margin: 0;
 }
+.list-anim-enter-active {
+  animation: leftEnter .3s;
+
+}
+.list-anim-leave-active {
+  animation: leftLeave .3s;
+}
+.map-anim-enter-active {
+  animation: rightEnter .3s;
+}
+.map-anim-leave-active {
+  animation: rightLeave .3s;
+}
+@keyframes leftEnter {
+  from {
+    transform: translate(-50%,0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes leftLeave {
+  from {
+    transform: translate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%,0);
+    opacity: 0;
+  }
+}
+@keyframes rightEnter {
+  from {
+    transform: translate(50%,0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+@keyframes rightLeave {
+  from {
+    transform: translate(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%,0);
+    opacity: 0;
+  }
+}
 
 @-webkit-keyframes twinkling {
   0% {
@@ -323,10 +387,9 @@ export default {
       return this.$store.getters.getPanelById(pid);
     },
     showMap(id) {
-      clearInterval(this.timer);
-      this.$vuetify.goTo(0);
-      this.activedBlock = id;
       this.activeBtn = "map";
+      clearInterval(this.timer);
+      this.activedBlock = id;
       this.clearBlock();
     },
     clearBlock() {

@@ -237,11 +237,11 @@ export default {
   },
   created () { 
   },
-  watch: {
-    '$route':function(to,from){
-                this.$vuetify.goTo(0);
-            }
-  },
+  // watch: {
+  //   '$route':function(to,from){
+  //               this.$vuetify.goTo(0);
+  //           }
+  // },
   mounted () {
     //console.log(this.$store.state.showDoor)
   },
