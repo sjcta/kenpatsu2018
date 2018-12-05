@@ -105,83 +105,78 @@ export default new Vuex.Store({
         'dept': 'GP'
       }, {
         'id': 'B-01',
-        'title': 'Nexperience for China SIB (collaboration with Tencent and ZTT etc.)-TBD',
-        'charge': '陈玉露',
+        'title': '$vuetify.panelList.panels[12].title',
+        'charge': '$vuetify.panelList.panels[12].charge',
         'dept': 'DS'
       }, {
         'id': 'B-02',
-        'title': 'Conceptual Visualization of SIB Business Domain',
-        'charge': '王欣',
+        'title': '$vuetify.panelList.panels[13].title',
+        'charge': '$vuetify.panelList.panels[13].charge',
         'dept': 'DO'
       }, {
         'id': 'B-03',
-        'title': '中国現場業務調査から明確化した保守サービスの品質向上',
-        'charge': '何婷',
+        'title': '$vuetify.panelList.panels[14].title',
+        'charge': '$vuetify.panelList.panels[14].charge',
         'dept': 'DO'
       }, {
         'id': 'B-04',
-        'title': 'Intelligent Applications based on Video Analysis',
-        'charge': '张盼/沙浩',
+        'title': '$vuetify.panelList.panels[15].title',
+        'charge': '$vuetify.panelList.panels[15].charge',
         'dept': 'IT'
       }, {
         'id': 'B-05',
-        'title': 'Symantic Based Video Structuring Framework',
-        'charge': '谢雨来/BP曾智嵘',
+        'title': '$vuetify.panelList.panels[16].title',
+        'charge': '$vuetify.panelList.panels[16].charge',
         'dept': 'IT'
       }, {
         'id': 'B-06',
-        'title': 'Integration of Hitachi OT & IT to create new value: Lumada platform & Real Use Case (Yum)',
-        'charge': '刘锋，周绥健，曾智嵘，耿璐,杨和东',
+        'title': '$vuetify.panelList.panels[17].title',
+        'charge': '$vuetify.panelList.panels[17].charge',
         'dept': 'IT'
       }, {
         'id': 'B-07',
-        'title': '5G Tsinghua related ',
-        'charge': '耿璐',
+        'title': '$vuetify.panelList.panels[18].title',
+        'charge': '$vuetify.panelList.panels[18].charge',
         'dept': 'IT'
       }, {
         'id': 'B-08',
-        'title': 'Standardization for smart manufacturing promotion',
-        'charge': '周绥健，陆程遂，姜淼',
+        'title': '$vuetify.panelList.panels[19].title',
+        'charge': '$vuetify.panelList.panels[19].charge',
         'dept': 'IT'
       }, {
         'id': 'B-09',
-        'title': '拡大する中国市場への社会実装を加速する電動化システム技術',
-        'charge': '孟毅',
+        'title': '$vuetify.panelList.panels[20].title',
+        'charge': '$vuetify.panelList.panels[20].charge',
         'dept': 'PT'
       }, {
         'id': 'B-10',
-        'title': 'Component technology to adapt for needs of downsizing and ligh weight in China EV society',
-        'charge': '德山健',
+        'title': '$vuetify.panelList.panels[21].title',
+        'charge': '$vuetify.panelList.panels[21].charge',
         'dept': 'PT'
       }, {
         'id': 'B-11',
-        'title': 'Simulation technology to support local manufacturing in China',
-        'charge': '赵幸锋',
+        'title': '$vuetify.panelList.panels[22].title',
+        'charge': '$vuetify.panelList.panels[22].charge',
         'dept': 'PT'
       }, {
         'id': 'B-12',
-        'title': 'Life prediction technology of PU guide roller for elevator',
-        'charge': '董强',
+        'title': '$vuetify.panelList.panels[23].title',
+        'charge': '$vuetify.panelList.panels[23].charge',
         'dept': 'PT'
       }, {
         'id': 'B-13',
-        'title': 'Achievements and Prospects of the Collaboration between Hitachi and SJTU',
-        'charge': '董强',
+        'title': '$vuetify.panelList.panels[24].title',
+        'charge': '$vuetify.panelList.panels[24].charge',
         'dept': 'PT'
       }, {
         'id': 'C-01',
-        'title': 'University collaboration',
-        'charge': '章一苇',
+        'title': '$vuetify.panelList.panels[25].title',
+        'charge': '$vuetify.panelList.panels[25].charge',
         'dept': 'DS'
       }, {
         'id': 'C-02',
-        'title': 'Hotspot collaboration',
-        'charge': '章一苇',
-        'dept': 'DS'
-      }, {
-        'id': 'C-03',
-        'title': 'Standardization activities',
-        'charge': '章一苇',
+        'title': '$vuetify.panelList.panels[26].title',
+        'charge': '$vuetify.panelList.panels[26].charge',
         'dept': 'DS'
       }
     ]

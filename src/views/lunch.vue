@@ -4,7 +4,7 @@
 
     <v-content id="panelList">
       <v-container fluid>
-        <v-card color="white" class="lunch">
+        <v-card color="white mb-4" class="lunch">
           <v-card-title primary-title>
             <div>
               <div class="headline white--text">{{ $vuetify.t('$vuetify.lunchDinner.lunch') }}</div>
@@ -27,13 +27,34 @@
             </div>
           </v-card-title>
           <v-card-actions>
+            <v-btn
+              color="blue white--text "
+              center
+              right
+              round
+              absolute
+              @click="dialog = !dialog"
+            >
+              <v-icon left>event_seat</v-icon>{{ $vuetify.t('$vuetify.lunchDinner.find') }}
+            </v-btn>
             <div class="d-flex"> 
               <v-icon large color="dark-1">location_on</v-icon>
               <span>{{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }}</span>
             </div>
           </v-card-actions>
         </v-card>
-
+        
+        <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-card-text>
+              <v-text-field :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
+              <small class="grey--text">{{ $vuetify.t('$vuetify.lunchDinner.sample') }}</small>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn center block  color="primary" @click="dialog = false">{{ $vuetify.t('$vuetify.lunchDinner.submit') }}</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 
       </v-container>
     </v-content>
@@ -41,9 +62,7 @@
 </template>
 
 <style scoped>
-.v-card {
-  margin-bottom: 20px;
-}
+
 .v-card__title {
   align-items: flex-start;
   height: 120px;
@@ -80,6 +99,11 @@ import headerBar from "../components/headerBar.vue";
 export default {
   components: {
     headerBar
+  },
+  data () {
+    return {
+      dialog: false
+    }
   }
 };
 </script>

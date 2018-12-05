@@ -86,7 +86,11 @@ export default {
     lunch: 'Lunch',
     lunchLocal: 'Wenjin Hotel 2F Reno Cafe',
     dinner: 'Dinner',
-    dinnerLocal: 'Wenjin Hotel 5F'
+    dinnerLocal: 'Wenjin Hotel 5F',
+    find: 'Find My Seat',
+    fullname: 'Please input your full-name.',
+    sample: 'e.g.：John Snow',
+    submit: 'Let\'s Check!'
   },
   panelList: {
     list: 'List',
@@ -157,6 +161,66 @@ export default {
       11: {
         title: 'Digital care management',
         charge: '宫崎邦彦'
+      },
+      12: {
+        title: 'Business promotion diamond pattern of customer co-creation for China SIB',
+        charge: '陈玉露'
+      },
+      13: {
+        title: 'Understanding of customer issues by information and graphic design',
+        charge: '王欣'
+      },
+      14: {
+        title: 'Improve quality of maintenance service in China with measures identified from the actual operation investigation ',
+        charge: '何婷'
+      },
+      15: {
+        title: 'Intelligent applications based on video analysis',
+        charge: '张盼/沙浩'
+      },
+      16: {
+        title: 'Semantic based video structuring framework',
+        charge: '谢雨来/BP曾智嵘'
+      },
+      17: {
+        title: 'Integration of Hitachi OT & IT to create new value: Lumada & real use case (Yum)',
+        charge: '刘锋，周绥健，曾智嵘，耿璐, 杨和东'
+      },
+      18: {
+        title: 'Distributed AI in edge computing for video analysis',
+        charge: '耿璐'
+      },
+      19: {
+        title: 'Standardization for smart manufacturing promotion',
+        charge: '周绥健，陆程遂，姜淼'
+      },
+      20: {
+        title: 'Expanding electrification technology to accelerate social implementation in China market',
+        charge: '孟毅'
+      },
+      21: {
+        title: 'Component technology to adapt for needs of downsizing and light weight in China EV society',
+        charge: '德山健'
+      },
+      22: {
+        title: 'Simulation technology to support local manufacturing in China',
+        charge: '赵幸锋'
+      },
+      23: {
+        title: 'Life prediction technology of PU guide roller for elevator',
+        charge: '董强'
+      },
+      24: {
+        title: 'Open innovation aimed to novel technologies of materials and mechatronics in China',
+        charge: '董强'
+      },
+      25: {
+        title: 'Expansion of open innovation activities to accelerate the creation of Chinese business',
+        charge: '章一苇'
+      },
+      26: {
+        title: 'Introduction of open innovation activities in CSI-CN',
+        charge: '章一苇'
       }
     }
   },
