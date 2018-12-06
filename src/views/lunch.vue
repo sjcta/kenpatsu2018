@@ -13,7 +13,7 @@
           </v-card-title>
           <v-card-actions>
             <div class="d-flex"> 
-              <v-icon large color="darken-2">location_on</v-icon>
+              <v-icon large color="blue">location_on</v-icon>
               <span>{{ $vuetify.t('$vuetify.lunchDinner.lunchLocal') }}</span>
             </div>
           </v-card-actions>
@@ -29,42 +29,34 @@
           <v-card-actions>
             
             <div class="d-flex"> 
-              <v-icon large color="dark-1">location_on</v-icon>
+              <v-icon large color="blue">location_on</v-icon>
               <span>{{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }}</span>
             </div>
           </v-card-actions>
           
-            <v-card-text class="py-1">
+            <v-card-text class="py-0">
               <v-text-field v-model="guestName" required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
-              <small class="grey--text">{{ $vuetify.t('$vuetify.lunchDinner.sample') }}</small>
+              <small class="grey--text" v-html="$vuetify.t('$vuetify.lunchDinner.sample')"></small>
             </v-card-text>
             <v-card-actions>
               <v-btn
                 color="blue white--text "
                 center
                 block
-                round
+                large
                 @click="searchName"
               >
-                <v-icon >event_seat</v-icon>&nbsp;{{ $vuetify.t('$vuetify.lunchDinner.find') }}
+                <v-icon left>event_seat</v-icon>{{ $vuetify.t('$vuetify.lunchDinner.find') }}
               </v-btn>
             </v-card-actions>
           </v-card>
-
-        
-            <v-dialog
-                v-model="dialog"
-                width="300"
-              >
-                <v-card
-                  color="blue lighten-1"
-                  dark
-                >
-                  <v-card-text class="display-1 text-xs-center py-5">
-                    <span v-text="searchResult"></span>
-                  </v-card-text>
-                </v-card>
-              </v-dialog>
+          <v-dialog v-model="dialog" width="300">
+            <v-card color="blue lighten-1" dark>
+              <v-card-text class="display-1 text-xs-center py-5">
+                <span v-text="searchResult"></span>
+              </v-card-text>
+            </v-card>
+          </v-dialog>
 
       </v-container>
     </v-content>
@@ -75,7 +67,7 @@
 
 .v-card__title {
   align-items: flex-start;
-  height: 130px;
+  height: 110px;
   padding-left: 50px;
 }
 .v-dialog .v-card__title {
@@ -199,14 +191,16 @@ export default {
     searchName: function () {
       var t = this;
       var _name = t.guestName.trim().toLowerCase();
+      if(_name && _name != "") {
+        this.tables.forEach(table => {
+          
+            if(table.name.indexOf(_name)!=-1 || table.ename.indexOf(_name)!=-1) {
+              this.searchResult = table.id;
+              this.dialog = true;
+            }
+        });
+      }
 
-      this.tables.forEach(table => {
-        
-          if(table.name.indexOf(_name)!=-1 || table.ename.indexOf(_name)!=-1) {
-            this.searchResult = table.id;
-            this.dialog = true;
-          }
-      });
 
     }
   }

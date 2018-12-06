@@ -90,7 +90,7 @@ export default {
     dinnerLocal: '文津国際ホテル5F',
     find: 'テーブル番号確認',
     fullname: 'お名前',
-    sample: '例：日立太郎',
+    sample: '日文名例：Hitachi Taro <br />中文名例：Zhang sanfeng',
     submit: 'テーブル番号確認'
   },
   panelList: {
