@@ -35,17 +35,11 @@
           </v-card-actions>
           
             <v-card-text class="py-0">
-              <v-text-field v-model="guestName" required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
+              <v-text-field v-model="guestName" clearable required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
               <small class="grey--text" v-html="$vuetify.t('$vuetify.lunchDinner.sample')"></small>
             </v-card-text>
             <v-card-actions>
-              <v-btn
-                color="blue white--text "
-                center
-                block
-                large
-                @click="searchName"
-              >
+              <v-btn color="blue white--text" center block large @click="searchName">
                 <v-icon left>event_seat</v-icon>{{ $vuetify.t('$vuetify.lunchDinner.find') }}
               </v-btn>
             </v-card-actions>
