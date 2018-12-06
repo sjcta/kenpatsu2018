@@ -109,7 +109,7 @@
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.61</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.7</v-flex>
     </v-footer>
   </div>
 </template>

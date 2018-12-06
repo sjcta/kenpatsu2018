@@ -90,8 +90,8 @@ export default {
     dinnerLocal: 'Wenjin Hotel 5F',
     find: 'Find My Table',
     fullname: 'Please input your full-name.',
-    sample: 'e.g.：John Snow',
-    submit: 'Let\'s Check!'
+    sample: 'e.g.：Hitachi Taro',
+    submit: 'Find My Table'
   },
   panelList: {
     list: 'List',

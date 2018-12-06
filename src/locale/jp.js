@@ -88,10 +88,10 @@ export default {
     lunchLocal: '文津ホテル2F怡多カフェ',
     dinner: '懇親交流会',
     dinnerLocal: '文津国際ホテル5F',
-    find: '席を探す',
+    find: 'テーブル番号確認',
     fullname: 'お名前',
     sample: '例：日立太郎',
-    submit: '探す！'
+    submit: 'テーブル番号確認'
   },
   panelList: {
     list: '一覧',
