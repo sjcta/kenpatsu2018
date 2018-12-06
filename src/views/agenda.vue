@@ -219,7 +219,7 @@ export default {
           ppl: ''
         },
         {
-          time: '13:30~',
+          time: '13:40~',
           theme: '$vuetify.agenda.present.part3.theme',
           ppl: '$vuetify.agenda.present.part3.name'
         },

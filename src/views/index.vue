@@ -45,7 +45,7 @@
                   {{ $vuetify.t('$vuetify.index.lunchDinner') }}
                 </span>
               </v-btn>
-              <v-btn block large outline color="info" to="#">
+              <v-btn block large outline color="info" :href="$vuetify.t('$vuetify.index.questURL')">
                 <v-icon left large>how_to_vote</v-icon>
                 <span class="text-capitalize">{{ $vuetify.t('$vuetify.index.quest') }}</span>
               </v-btn>
@@ -109,7 +109,7 @@
     </v-content>
 
     <v-footer class="pa-3" light>
-      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.6</v-flex>
+      <v-flex text-xs-center>&copy;{{ new Date().getFullYear() }} HCR&amp;D - V1.61</v-flex>
     </v-footer>
   </div>
 </template>

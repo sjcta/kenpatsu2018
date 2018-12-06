@@ -11,6 +11,7 @@ export default {
     panelList: 'ポスター展示',
     lunchDinner: '昼食＆懇親交流会',
     quest: 'アンケート',
+    questURL: 'https://wj.qq.com/s/2972848/267b',
     contact: '連絡先',
     office: '日立（中国）研究開発有限公司　経営企画室',
     person1: {

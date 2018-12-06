@@ -11,6 +11,7 @@ export default {
     panelList: 'Panel List',
     lunchDinner: 'Lunch & Dinner',
     quest: 'Questionnaire',
+    questURL: 'https://wj.qq.com/s/2973138/57da',
     contact: 'Contact',
     office: 'HCR&D Planning office',
     person1: {
@@ -85,9 +86,9 @@ export default {
   lunchDinner: {
     lunch: 'Lunch',
     lunchLocal: 'Wenjin Hotel 2F Reno Cafe',
-    dinner: 'Dinner',
+    dinner: 'Networking Party',
     dinnerLocal: 'Wenjin Hotel 5F',
-    find: 'Find My Seat',
+    find: 'Find My Table',
     fullname: 'Please input your full-name.',
     sample: 'e.g.：John Snow',
     submit: 'Let\'s Check!'

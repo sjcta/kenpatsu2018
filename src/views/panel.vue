@@ -2,7 +2,7 @@
   <div>
     <headerBar v-on:childLang="$emit('changeLang')">{{ $vuetify.t('$vuetify.index.panelList') }}</headerBar>
 
-    <v-content id="panelList" class="mb-9">
+    <v-content id="panelList">
       <transition name="list-anim">
       <v-container fluid v-show="activeBtn == 'list'" class="mb-9">
         <v-list
@@ -12,10 +12,10 @@
           :key="'part'+index"
           class="elevation-3 mb-4"
         >
-          <h3 class="text-xs-center">{{ $vuetify.t(part.title) }}</h3>
+          <h3 class="text-xs-center" :class="part.color">{{ $vuetify.t(part.title) }}</h3>
 
           <div class="segment" v-for="(segm,index) in part.segment" :key="'seg'+index">
-            <h4 class="blue--text">{{ $vuetify.t(segm.title) }}</h4>
+            <h4 class="grey--text darken-3">{{ $vuetify.t(segm.title) }}</h4>
 
             <v-list-tile
               v-for="(item,index) in segm.panels"
@@ -29,11 +29,11 @@
               <v-list-tile-content>
                 <v-layout align-start justify-start column fill-height>
                   <div class="theme">{{ $vuetify.t(getPanelInfo(item).title) }}</div>
-                  <div>
+                  <!-- <div>
                     <span
                       class="charge grey--text"
                     >[{{ getPanelInfo(item).dept }}] {{ $vuetify.t(getPanelInfo(item).charge) }}</span>
-                  </div>
+                  </div> -->
                 </v-layout>
               </v-list-tile-content>
 
@@ -140,7 +140,7 @@
 <style scoped>
 .container {
   position: absolute;
-
+  margin-bottom: 50px;
 }
 #panelList {
   font-size: 90%;
@@ -149,7 +149,6 @@
 #panelList h3 {
   height: 40px;
   line-height: 40px;
-  background-color: #2196f3;
   font-size: 15px;
   color: #fff;
 }
@@ -173,11 +172,12 @@
 }
 #panelList .key {
   font-size: 11px;
+  padding-top: 2px;
 }
 #panelList .theme {
   display: block;
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 13px;
+  line-height: 1.4;
   padding: 8px 0 0;
 }
 #panelList .charge {

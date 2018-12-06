@@ -10,6 +10,7 @@ export default new Vuex.Store({
     panelParts: [
       {
         title: '$vuetify.panelList.parts[0].title',
+        color: 'areaA',
         segment: [
           {
             title: '$vuetify.panelList.parts[0].segment[0]',
@@ -24,6 +25,7 @@ export default new Vuex.Store({
         ]
       }, {
         title: '$vuetify.panelList.parts[1].title',
+        color: 'areaB',
         segment: [
           {
             title: '$vuetify.panelList.parts[1].segment[0]',
@@ -40,6 +42,7 @@ export default new Vuex.Store({
         ]
       }, {
         title: '$vuetify.panelList.parts[2].title',
+        color: 'areaC',
         segment: [
           {
             title: '$vuetify.panelList.parts[2].segment[0]',
