@@ -50,7 +50,7 @@
             <v-card-title class="headline purple darken-2 white--text pb-4">
               {{ $vuetify.t('$vuetify.lunchDinner.find') }}
               
-              <div id="result">table is: <span v-text="searchResult">___</span></div>
+              
             </v-card-title>
             <v-card-text>
               <v-text-field v-model="guestName" required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
@@ -59,6 +59,9 @@
             <v-card-actions>
               <v-btn center block flat color="purple" @click="searchName">{{ $vuetify.t('$vuetify.lunchDinner.submit') }}</v-btn>
             </v-card-actions>
+            <v-card-actions>
+              <div id="result">Result: <span v-text="searchResult">___</span></div>
+              </v-card-actions>
           </v-card>
         </v-dialog>
 
@@ -117,14 +120,24 @@ export default {
       guestName: '',
       tables: [
         {
-          id: 'No.1',
+          id: 'Table.1',
           name: ['鈴木正浩', '松岡秀佳', '野本正明', '小久保憲一', '金森秀人', '田辺史朗', '鈴木教洋', '小池麻子', '船木謙一', '鮫嶋茂稔'],
           ename: ['matsuoka hideka', 'nomoto masaaki', 'kokubo kenichi', 'kanamori hidehito', 'norihiro suzuki', 'koike asako', 'ishizuka asako', 'funaki kenichi', 'sameshima shigetoshi']
         }, 
         {
-          id: 'No.2',
+          id: 'Table.2',
           name: ['张煜', '陈木青', '罗露露', '马越鹏', '梁东明', '陈杨秋', '马军', '马元琛', '章一苇', '栾天'],
-          ename: ['matsuoka hideka', 'nomoto masaaki', 'kokubo kenichi', 'kanamori hidehito', 'norihiro suzuki', 'koike asako', 'ishizuka asako', 'funaki kenichi', 'sameshima shigetoshi']
+          ename: ['zhang yu', 'chen muqing', 'luo lulu', 'ma yuepeng', 'liang dongming', 'chen yangqiu', 'ma jun', 'ma yuanchen', 'zhang yiwei', 'luan tian']
+        },
+        {
+          id: 'Table.3',
+          name: ['鈴木友峰', '畑中長則', '木村雅彦', '马场健治', '森田歩', '矢川雄一', '山田真治', '赤津雅晴', '後藤康', '西澤格'],
+          ename: ['suzuki tomomi','hatanaka takenori','masahiko kimura','morita ayumu','yagawa yuichi','yamada shinji','akatsu masaharu','goto yasushi','nishizawa itaru']
+        },
+        {
+          id: 'Table.3',
+          name: ['鈴木友峰', '畑中長則', '木村雅彦', '马场健治', '森田歩', '矢川雄一', '山田真治', '赤津雅晴', '後藤康', '西澤格'],
+          ename: ['suzuki tomomi','hatanaka takenori','masahiko kimura','morita ayumu','yagawa yuichi','yamada shinji','akatsu masaharu','goto yasushi','nishizawa itaru']
         }
       ]
     }
@@ -134,17 +147,13 @@ export default {
   methods: {
     searchName: function () {
       var t = this;
+      var _name = t.guestName.trim().toLowerCase();
 
       this.tables.forEach(table => {
         
-        for(var i=0; i < table.name.length; i++) {
-           if(table.name[i].indexOf(t.guestName)!=-1 || table.ename[i].indexOf(t.guestName)!=-1) {
-              console.log('yes')
-            }else{
-              console.log('no')
-            }
-        }
-        
+          if(table.name.indexOf(_name)!=-1 || table.ename.indexOf(_name)!=-1) {
+            this.searchResult = table.id;
+          }
       });
 
     }
