@@ -185,7 +185,7 @@
     margin-bottom: 30px;
   }
   #pop #text .headline h1 {
-    font-size: 120%;
+    font-size: 110%;
     line-height: 1;
   }
   #pop #text .headline span {
