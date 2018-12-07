@@ -31,6 +31,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 module.exports = {
   baseUrl: process.env.NODE_ENV === 'production'
-    ? '/hcrd/kanpatsu2018/'
+    ? '/micro/hcrd/kenpatsu2018/'
     : ''
 }

@@ -27,7 +27,7 @@ export default {
   },
   agenda: {
     steps: {
-      start: '[Start Reception]',
+      start: 'Start Reception',
       poster: 'Kenpatsu Poster Exhibition',
       lunch: 'Lunch<br />(Wenjin Hotel 2F Reno Cafe)'
     },
@@ -40,7 +40,7 @@ export default {
         theme: 'Session 1<br />China Regional Strategy & (RDG) Technology Strategy'
       },
       part3: {
-        theme: 'China Regional Business Strategy',
+        theme: 'China Regional Strategy',
         name: 'Kokubo SVP and Executive Officer, Chief Executive for China Hitachi Gr.'
       },
       part4: {
@@ -51,7 +51,7 @@ export default {
         theme: 'Session 2<br />R&D Activities in China'
       },
       part6: {
-        theme: 'R&D Activities Leading SIB in China',
+        theme: 'R&D Activities Leading Social Innovation in China',
         name: 'Chen Yangqiu'
       },
       part7: {
@@ -70,11 +70,11 @@ export default {
         theme: 'Session 3<br />Open Forum: Driving Open Innovation in China'
       },
       part11: {
-        theme: 'HCR&D’s Open Innovation Scheme in China',
-        name: '(HCR&D)Zhang Yiwei, Expert from Tsinghua University & Zhongguancun Inno Way, GM of (HCH) related department'
+        theme: 'Expanding Open Innovation Activities to Accelerate Business Creation in China',
+        name: 'Zhang Yiwei, (HCR&D)<br >Ma Jun, Tsinghua University<br />Luan Tian, Zhongguancun Inno Way<br />Ma Yuepeng, Shenzhen Public Innovation Space Association<br />Kaneshiro Ryo, GM of (HCH) Information & Telecommunication Systems Group'
       },
       part12: {
-        theme: 'Challenges and Prospects of Open Innovation in China',
+        theme: 'Accelerating R&D and Business Development with Open Innovation in China',
         name: 'Facilitator: (HCH)CTO Tanabe Shiro<br />Panelists: Same as above'
       },
       part13: {
