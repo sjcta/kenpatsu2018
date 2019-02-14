@@ -1,16 +1,14 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import 'vuetify/src/stylus/app.styl'
-import en from '../locale/en.js'
-import jp from '../locale/jp.js'
+import cn from '../locale/en.js'
 
 Vue.use(Vuetify, {
   iconfont: 'md',
   lang: {
     locales: {
-      'en': en,
-      'jp': jp
+      'cn': cn
     },
-    current: ''
+    current: 'cn'
   }
 })
