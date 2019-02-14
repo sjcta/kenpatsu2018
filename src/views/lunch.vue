@@ -20,39 +20,41 @@
         </v-card>
 
         <v-card color="white" class="dinner">
-            <v-card-title primary-title>
-              <div>
-                <div class="headline white--text">{{ $vuetify.t('$vuetify.lunchDinner.dinner') }}</div>
-                <span class=" white--text">18:30 ~ 20:00</span>
-              </div>
-            </v-card-title>
+          <v-card-title primary-title>
+            <div>
+              <div class="headline white--text">{{ $vuetify.t('$vuetify.lunchDinner.dinner') }}</div>
+              <span class=" white--text">18:30 ~ 20:00</span>
+            </div>
+          </v-card-title>
+          <v-card-actions>
             
-            <v-card-actions>
-              <div class="d-flex"> 
-                <v-icon large color="blue">location_on</v-icon>
-                <span>{{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }}</span>
-              </div>
-            </v-card-actions>
-
+            <div class="d-flex"> 
+              <v-icon large color="blue">location_on</v-icon>
+              <span>{{ $vuetify.t('$vuetify.lunchDinner.dinnerLocal') }}</span>
+            </div>
+          </v-card-actions>
+          
             <v-card-text class="py-0">
+<<<<<<< HEAD
+              <v-text-field v-model="guestName" clearable required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
+=======
               <v-text-field v-model="guestName" clearable required :label="$vuetify.t('$vuetify.lunchDinner.fullname')" @keyup.enter="searchName"></v-text-field>
+>>>>>>> ce0baba7e5f55b1db1404d3a3286c0454c6d1085
               <small class="grey--text" v-html="$vuetify.t('$vuetify.lunchDinner.sample')"></small>
             </v-card-text>
-            
             <v-card-actions>
               <v-btn color="blue white--text" center block large @click="searchName">
                 <v-icon left>event_seat</v-icon>{{ $vuetify.t('$vuetify.lunchDinner.find') }}
               </v-btn>
             </v-card-actions>
-        </v-card>
-        
-        <v-dialog v-model="dialog" width="300">
-          <v-card color="blue lighten-1" dark>
-            <v-card-text class="display-1 text-xs-center py-5">
-              <span v-text="searchResult"></span>
-            </v-card-text>
           </v-card>
-        </v-dialog>
+          <v-dialog v-model="dialog" width="300">
+            <v-card color="blue lighten-1" dark>
+              <v-card-text class="display-1 text-xs-center py-5">
+                <span v-text="searchResult"></span>
+              </v-card-text>
+            </v-card>
+          </v-dialog>
 
       </v-container>
     </v-content>
