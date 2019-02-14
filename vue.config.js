@@ -8,7 +8,7 @@ module.exports = {
   },
 
   //baseUrl: '/micro/hcrd/kenpatsu2018/',
-  baseUrl: '/micro/hcrd/kenpatsu2018/',
+  baseUrl: '/',
   lintOnSave: false,
   outputDir: undefined,
   assetsDir: 'assets',

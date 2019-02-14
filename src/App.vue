@@ -7,28 +7,20 @@
           <div id="logo"></div>
 
           <v-layout align-center justify-center id="text" class="text-xs-center white--text">
-            <p class="corp text-xs-center">日立(中国)研究開発有限公司</p>
+            <p class="corp text-xs-center">第100届<br />全国糖酒商品交易会</p>
             <div class="headline">
-                <h1 class="text-xs-center">2018年度研究発表会</h1>
-                <span>Hitachi (China) R&D Corporation 2018 Kenpatsu</span>
+                <h1 class="text-xs-center">日立产机系统（中国）有限公司</h1>
+                <span>出展信息</span>
             </div>
 
-            <div class="location">
-              <h3>発表会場</h3>
-              <span>文津国際ホテル 5F陽光庁<br /> (中国北京市海淀区成府路清華大学南門)</span>
-            </div>
             <div class="date">
-              <h3>開催日時</h3>
-              <span>2018年12月7日（金） 10:00-18:00</span>
+              <h3>2019年3月21日～23日</h3>
+              <span>中国，成都</span>
             </div>
           </v-layout>
 
         </v-container>
 
-        <div id="buttons" class="">
-            <v-btn large color="white" @click="setLang('en')">English</v-btn>
-            <v-btn large color="white" @click="setLang('jp')">日本語</v-btn>
-        </div>
       </v-content>
     </transition>
 
