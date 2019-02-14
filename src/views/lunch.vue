@@ -35,11 +35,7 @@
           </v-card-actions>
           
             <v-card-text class="py-0">
-<<<<<<< HEAD
-              <v-text-field v-model="guestName" clearable required :label="$vuetify.t('$vuetify.lunchDinner.fullname')"></v-text-field>
-=======
               <v-text-field v-model="guestName" clearable required :label="$vuetify.t('$vuetify.lunchDinner.fullname')" @keyup.enter="searchName"></v-text-field>
->>>>>>> ce0baba7e5f55b1db1404d3a3286c0454c6d1085
               <small class="grey--text" v-html="$vuetify.t('$vuetify.lunchDinner.sample')"></small>
             </v-card-text>
             <v-card-actions>
